@@ -1,0 +1,6 @@
+{
+    "/api/*": {
+      "target": "https://back-dashboard.herokuapp.com",
+      "changeOrigin": true
+    }
+  }
