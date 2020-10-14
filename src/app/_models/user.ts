@@ -1,7 +1,6 @@
 export class User {
     username: string;
     password: string;
-    firstName: string;
-    lastName: string;
-    is_prof:string;
+    email:string
+    is_professor:boolean;
 }

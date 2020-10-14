@@ -30,11 +30,11 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
+            
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            is_prof:['',Validators.required],
+            email: ['',Validators.required],
+            is_professor:[false,Validators.required],
         });
     }
 
@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
-
+      console.log(this.submitted);
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
@@ -60,5 +60,6 @@ export class RegisterComponent implements OnInit {
                     window.alert("registration unsuccessful");
                     this.loading = false;
                 });
+          console.log(this.registerForm.value);
     }
 }

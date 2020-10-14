@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-
+import { Observable } from 'rxjs';
 import { User } from '../_models';
 const register_url="https://back-dashboard.herokuapp.com/api/user/";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'mode': 'no-cors',
-    'Access-Control-Allow-Origin':'**',
+    
   })
 };
 @Injectable({
@@ -19,8 +18,8 @@ export class UserService {
   { 
 
   }
-  register(user: User) 
+  register(user: User):Observable<User> 
   {
-    return this.http.post(register_url, user,httpOptions);
+    return this.http.post<User>(register_url, user,httpOptions);
   }
 }
