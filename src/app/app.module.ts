@@ -8,24 +8,27 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import {UserService} from './services/user.service'
+import {UserService} from './services/user.service';
+import { LogoutComponent } from './logout/logout.component'
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TopBarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      
-      {path: 'login',component:LoginComponent},
-      {path:'register',component:RegisterComponent},
-      {path: '**',redirectTo:'login'},
+      {path: '', component: HomeComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
+      {path: 'logout', component: LogoutComponent},
+      {path: '**', redirectTo: 'login'},
     ])
     ],
   providers: [

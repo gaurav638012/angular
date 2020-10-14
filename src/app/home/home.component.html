@@ -1,1 +1,5 @@
-
+<div *ngFor="let course of courses">
+<div class="course">
+    <a routerLink="{{'course/'+course.id}}"> {{course.code}} : {{course.name}}</a>
+    </div>
+</div>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../_models';
-const REGISTER_URL = 'https://back-dashboard.herokuapp.com/api/user/';
+const LOGOUT_URL = 'https://127.0.0.1:8000/api/auth/logout/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -11,13 +10,13 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LogoutService {
 
-  constructor(private http: HttpClient)
-  {
+  constructor(
+    private http: HttpClient,
+  ) {
   }
-  register(user: User): Observable<User>
-  {
-    return this.http.post<User>(REGISTER_URL, user, httpOptions);
+  logout(){
+    this.http.get(LOGOUT_URL, httpOptions);
   }
 }
