@@ -62,6 +62,12 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                     console.log(data);
                     localStorage.setItem('user', data['token']);
+                    if(data['is_professor']==true){
+                        localStorage.setItem('is_professor','true');
+                    }
+                    else{
+                        localStorage.setItem('is_professor','false');
+                    }
                 },
                 error => {
                     this.loading = false;

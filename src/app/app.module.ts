@@ -9,7 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import {UserService} from './services/user.service';
-import { LogoutComponent } from './logout/logout.component'
+import { LogoutComponent } from './logout/logout.component';
+import { AddCourseComponent } from './add-course/add-course.component'
+import { CourseHomeComponent } from './course-home/course-home.component';
+import { combineAll } from 'rxjs/operators';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,9 @@ import { LogoutComponent } from './logout/logout.component'
     TopBarComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddCourseComponent,
+    CourseHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,10 +30,11 @@ import { LogoutComponent } from './logout/logout.component'
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
+      {path: 'addcourse',component: AddCourseComponent},
+      {path: 'course/:id', component: CourseHomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'logout', component: LogoutComponent},
-      {path: '**', redirectTo: 'login'},
+      {path: 'logout', component: LogoutComponent}
     ])
     ],
   providers: [

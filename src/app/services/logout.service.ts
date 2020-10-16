@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const LOGOUT_URL = 'https://back-dashboard.herokuapp.com/api/auth/logout/';
+import {BASE_URL} from './base';
+const LOGOUT_URL = BASE_URL+'/api/auth/logout/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

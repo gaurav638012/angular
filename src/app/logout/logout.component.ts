@@ -13,7 +13,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.logout.logout();
-    localStorage.removeItem('user');
+    localStorage.clear();
   }
 
 }

@@ -1,5 +1,7 @@
 <a>Menu</a>
 <a routerLink='/'>Dashboard</a>
+<p *ngIf="logged_in">
 <a routerLink='/logout'>Logout</a>
-<p><a routerLink="/login">Login</a>/<a routerLink="/register">Register</a></p>
+</p>
+<p *ngIf="!logged_in"><a routerLink="/login">Login</a>/<a routerLink="/register">Register</a></p>
 

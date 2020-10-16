@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models';
 import {UserMy} from '../_models/user-my';
-const REGISTER_URL = 'https://back-dashboard.herokuapp.com/api/user/asc/';
+import {BASE_URL} from  './base';
+const REGISTER_URL = BASE_URL+'/api/user/asc/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
