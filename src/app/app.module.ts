@@ -34,7 +34,8 @@ import { combineAll } from 'rxjs/operators';
       {path: 'course/:id', component: CourseHomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'logout', component: LogoutComponent}
+      {path: 'logout', component: LogoutComponent},
+      {path:'**',component:LoginComponent},
     ])
     ],
   providers: [

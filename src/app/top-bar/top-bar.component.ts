@@ -18,7 +18,7 @@ export class TopBarComponent implements OnInit {
     this.check_logIN();
   }
   check_logIN(){
-    if(localStorage.getItem('user')==null){
+    if(localStorage.getItem('user')==null||localStorage.getItem('user')=='undefined'){
       this.logged_in=false;
     }
     else{

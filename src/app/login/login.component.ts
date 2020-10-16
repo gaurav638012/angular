@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         )
 {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
+        if (localStorage.getItem('user')!=null) {
             this.router.navigate(['/']);
         }
     }
@@ -59,15 +59,23 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
                     console.log(data['token_form']);
-                    localStorage.setItem('user', data['token_form']);
-                    if(data['is_professor']==true){
-                        localStorage.setItem('is_professor','true');
+                    if(data['token_form']==null||data['token_form']=='undefined'){
+                        this.loading=false;
+                        window.alert('invalid login');
+                        this.router.navigate(['login']);
                     }
                     else{
-                        localStorage.setItem('is_professor','false');
+                        localStorage.setItem('user', data['token_form']);
+                        this.router.navigate([this.returnUrl]);
+                        if(data['is_professor']==true){
+                            localStorage.setItem('is_professor','true');
+                        }
+                        else{
+                            localStorage.setItem('is_professor','false');
+                        }
                     }
+                    
                 },
                 error => {
                     this.loading = false;

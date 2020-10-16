@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserwhoService} from '../services/userwho.service';
+import {AuthenticationService} from '../services/authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-home',
@@ -12,9 +13,14 @@ export class HomeComponent implements OnInit {
   constructor(
     private who: UserwhoService,
     private router: Router,
+    private authenticationService : AuthenticationService,
   ) { }
 
   ngOnInit(): void {
+    if(!this.authenticationService.currentUserValue)
+    {
+      this.router.navigate(['/login']);
+    }
     this.who.WHO().subscribe(data => {console.log(data);
                                       this.courses = data;
                                     });
