@@ -18,7 +18,7 @@ export class CourseHomeComponent implements OnInit {
   course_status;
   username:FormControl;
   message:FormControl;
-  messages:Observable<Message[]>
+  messages:Observable<Message>
   constructor(
     private activatedRoute:ActivatedRoute,
     private who:UserwhoService,
@@ -62,7 +62,9 @@ export class CourseHomeComponent implements OnInit {
   SendStudent(){
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'student').pipe(first())
     .subscribe(
-      data=>console.log(data)
+      data=>{console.log(data)
+        this.router.navigate(['course',this.course_id]);
+      }
     )
   }
 }
