@@ -60,8 +60,8 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
-                    console.log(data);
-                    localStorage.setItem('user', data['token']);
+                    console.log(data['token_form']);
+                    localStorage.setItem('user', data['token_form']);
                     if(data['is_professor']==true){
                         localStorage.setItem('is_professor','true');
                     }

@@ -12,7 +12,7 @@ export class LogoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.logout.logout();
+    this.logout.logout().subscribe(data=>console.log('hi'))
     localStorage.clear();
   }
 

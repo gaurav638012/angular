@@ -18,6 +18,8 @@ export class LogoutService {
   ) {
   }
   logout(){
-    this.http.get(LOGOUT_URL, httpOptions);
+    const USE_URL=LOGOUT_URL+localStorage.getItem('user')+'/'
+    console.log(USE_URL)
+    return this.http.get(USE_URL, httpOptions);
   }
 }

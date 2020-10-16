@@ -3,6 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Login} from '../_models/login';
 import {UserMy} from '../_models/user-my';
+import {UserToken} from '../_models/user-token';
+import * as uuid from 'uuid';
 import {BASE_URL} from './base';
 const LOGIN_URL = BASE_URL+'/api/auth/login/';
 const httpOptions = {
@@ -18,9 +20,10 @@ export class AuthenticationService {
   constructor(
     private http: HttpClient,
   ) { }
-  login(data: Login): Observable<UserMy>
+  login(data: Login): Observable<UserToken>
   {
-    this.currentUserValue = this.http.post<UserMy>(LOGIN_URL, data, httpOptions);
+    data['uuid']=uuid.v4();
+    this.currentUserValue = this.http.post<UserToken>(LOGIN_URL, data, httpOptions);
     return this.currentUserValue;
   }
 }
