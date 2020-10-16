@@ -1,4 +1,4 @@
-<div *ngIf="course_status=='professor'||'TA'">
+<div *ngIf="course_status=='professor'||course_status=='TA'">
     <label class="username">Username:</label>
     <input type="text" [formControl]="username">
     <button *ngIf="course_status=='professor'" class="submit" (click)="AddTA()">Add TA</button>
