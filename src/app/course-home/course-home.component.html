@@ -4,3 +4,12 @@
     <button *ngIf="course_status=='professor'" class="submit" (click)="AddTA()">Add TA</button>
     <button *ngIf="course_status=='TA'||course_status=='professor'" class="submit" (click)="AddStudent()">Add Student</button>
 </div>
+<div *ngIf="course_status=='professor'||course_status=='TA'">
+    <label class="message">Message:</label>
+    <input type="text" [formControl]="message">
+    <button *ngIf="course_status=='professor'" class="submit" (click)="SendTA()">Send to TA</button>
+    <button *ngIf="course_status=='TA'||course_status=='professor'" class="submit" (click)="SendStudent()">Send to Students</button>
+</div>
+<div *ngFor="let message of messages">
+{{message.message}}
+</div>
