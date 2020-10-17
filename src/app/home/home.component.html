@@ -1,15 +1,15 @@
 <div class="flex-container">
 
 <div *ngFor="let course of courses;index as i">
-<!--
+
 <script>
     var z=Math.floor(Math.random() * 3)+1;
     var src="../image_files/"+"img"+str(z)+".jpg";
     document.getElementById('hello').src=src;
 </script>
--->
+
     <div class="card bg-danger" style="width: 400px;">
-        <img class="card-img-top" id="hello" src="../image_files/img1.jpg" alt="Card image">
+        <img class="card-img-top" id="hello" alt="Card image">
         
         <div class="card-body" >
             <h3 class="card-title">{{course.code}}</h3>
@@ -21,6 +21,9 @@
 </div>
 
 
-<div *ngIf="is_professor">
-    <button class="addCourse" (click)="AddCourse()" >Add Course</button>
+
+<div class="add_course_button">
+    <div *ngIf="is_professor">
+        <button class="addCourse" (click)="AddCourse()" >Add Course</button>
+    </div>
 </div>

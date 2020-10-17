@@ -13,6 +13,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddCourseComponent } from './add-course/add-course.component'
 import { CourseHomeComponent } from './course-home/course-home.component';
 import { combineAll } from 'rxjs/operators';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { combineAll } from 'rxjs/operators';
     LogoutComponent,
     AddCourseComponent,
     CourseHomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { combineAll } from 'rxjs/operators';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
+      {path: 'about', component: AboutComponent},
       {path: 'addcourse',component: AddCourseComponent},
       {path: 'course/:id', component: CourseHomeComponent},
       {path: 'login', component: LoginComponent},
