@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <a routerLink='/about'>404 NOT FOUND</a>
 <a *ngIf="logged_in" routerLink='/'>Dashboard</a>
 <p *ngIf="logged_in">
-<a routerLink='/logout'>Logout</a>
+    <a routerLink='/logout'>Logout</a>
 </p>
 <p *ngIf="!logged_in"><a routerLink="/login">Login</a>/<a routerLink="/register">Register</a></p>
-
