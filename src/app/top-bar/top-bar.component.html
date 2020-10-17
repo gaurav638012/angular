@@ -1,5 +1,5 @@
 <a routerLink='/about'>404 NOT FOUND</a>
-<a routerLink='/'>Dashboard</a>
+<a *ngIf="logged_in" routerLink='/'>Dashboard</a>
 <p *ngIf="logged_in">
 <a routerLink='/logout'>Logout</a>
 </p>
