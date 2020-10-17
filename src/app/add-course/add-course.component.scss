@@ -1,0 +1,27 @@
+.card {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    
+}
+
+.card-header{
+    font-size: 35px;
+    color: darkgreen;
+    text-align: center;
+}
+
+.card-body{
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.form-control{
+    width: 50%;
+    
+}
+
+input[type="radio"]{
+    margin: 0 10px ;
+  }
