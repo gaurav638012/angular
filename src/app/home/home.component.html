@@ -1,8 +1,26 @@
-<div *ngIf="is_professor">
-<button class="addCourse" (click)="AddCourse()" >Add Course</button>
-</div>
-<div *ngFor="let course of courses">
-<div class="course">
-    <a routerLink="{{'/course/'+course.id}}"> {{course.code}} : {{course.name}}</a>
+<div class="card-columns">
+
+<div *ngFor="let course of courses;index as i">
+
+<script>
+    var z=Math.floor(Math.random() * 3)+1;
+    var src="../image_files/"+"img"+str(z)+".jpg";
+    document.getElementById('hello').src=src;
+</script>
+
+    <div class="card bg-danger">
+        <img class="card-img-top" id="hello" alt="Card image">
+        
+        <div class="card-body">
+            <h3 class="card-title">{{course.code}}</h3>
+            <a routerLink="{{'/course/'+course.id}}"> {{course.name}}</a>
+       </div>
     </div>
+
+</div>
+</div>
+
+
+<div *ngIf="is_professor">
+    <button class="addCourse" (click)="AddCourse()" >Add Course</button>
 </div>

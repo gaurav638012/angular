@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  @Input() logged_in;
+  logged_in;
   interval=setInterval(()=>{this.check_logIN();},300);
   constructor(
   ) { 

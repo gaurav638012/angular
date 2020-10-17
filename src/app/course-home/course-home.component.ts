@@ -18,7 +18,7 @@ export class CourseHomeComponent implements OnInit {
   course_status;
   username:FormControl;
   message:FormControl;
-  messages:Observable<Message>
+  messages
   constructor(
     private activatedRoute:ActivatedRoute,
     private who:UserwhoService,
@@ -37,7 +37,7 @@ export class CourseHomeComponent implements OnInit {
     });
     this.username=new FormControl('');
     this.message=new FormControl('');
-    this.messageService.GET_MESSAGES(this.course_id).subscribe(data=>this.messages=data);
+    this.messageService.GET_MESSAGES(this.course_id).subscribe(data1=>this.messages=data1);
   }
   AddStudent(){
     this.addtocourse.AddToCourse(this.username.value,this.course_id,'student').pipe(first())
