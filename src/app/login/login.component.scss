@@ -1,27 +1,37 @@
-.card-header{
+.card-header {
     font-size: 35px;
-    color: darkgreen;
+    color: black;
     text-align: center;
 }
 
 .card {
-    width: 400px;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    
+    margin-top: 10%;
 }
 
-.card-body{
+.card-body {
     margin-top: 50px;
     padding-top: 50px;
 }
 
-.space-it{
+.space-it {
     margin-top: 30px;
 }
 
-.form-control{
-    width: 50%;
-    
+.form-control {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.login {
+    margin-right: 20px;
+}
+
+.button {
+    text-align: center;
 }

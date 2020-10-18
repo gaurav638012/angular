@@ -14,6 +14,7 @@ import { AddCourseComponent } from './add-course/add-course.component'
 import { CourseHomeComponent } from './course-home/course-home.component';
 import { combineAll } from 'rxjs/operators';
 import { AboutComponent } from './about/about.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { AboutComponent } from './about/about.component';
       {path: 'register', component: RegisterComponent},
       {path: 'logout', component: LogoutComponent},
       {path:'**',component:LoginComponent},
-    ])
+    ]),
+    NgbModule
     ],
   providers: [
     UserService,
