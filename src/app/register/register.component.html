@@ -3,54 +3,53 @@
 <div class="card bg-info text-white">
     <div class="card-header">Register</div>
     <div class="class-body">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registerForm">
 
             <div class="form-group">
-                <label for="username" style="font-size:20px;">Username</label>
+                <label for="username" style="font-size:20px;">Username:</label>
                 <input type="text" placeholder="create your username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="email" style="font-size:20px;">Email</label>
+                <label for="email" style="font-size:20px;">Email:</label>
                 <input type="string" placeholder="enter your email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                 <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                     <div *ngIf="f.firstName.errors.required">Email is required</div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="password" style="font-size:20px;">Password</label>
+                <label for="password" style="font-size:20px;">Password:</label>
                 <input type="password" placeholder="create password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                 </div>
             </div>
-            <div class="form-group">
-                <p style="font-size:20px;"><b>Are You a Professor ?:</b></p>
-                <label style="font-size:20px;">
-          Yes
-          <input type="radio" formControlName="is_professor" value=true >
-        </label>
-                <label style="font-size:20px;">
-          No
-          <input type="radio" formControlName="is_professor" value=false>
-        </label>
+        </form>
+           
 
-            </div>
-
+        <form [formGroup]="auth_code_form">
             <div class="form-group">
-                <span>
-                    <button [disabled]="loading" class="btn btn-primary btn-lg">
-                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Register
-                </button>
-                </span>
-                <button class="btn">
-                    <a routerLink="/login" class="cancel btn btn-link btn-danger btn-lg">Cancel</a>
-                </button>
-                <span style="color:black;">Already have an account? Login <a href="/login" style="color:red;"><u>Here</u></a></span>
+                <label for="password" style="font-size:20px;">Authentication Code:</label>
+                <input type="password" placeholder="enter authentication code" formControlName="auth_code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f1.auth_code.errors }" />
+                <div *ngIf="submitted && f1.auth_code.errors" class="invalid-feedback">
+                    <div *ngIf="f1.auth_code.errors.required">Password is required</div>
+                </div>
             </div>
         </form>
+
+        <div>
+            <span>
+                <button [disabled]="loading" (click)="onSubmit()" class="btn btn-primary btn-lg">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Register
+            </button>
+            </span>
+            <button class="btn">
+                <a routerLink="/login" class="cancel btn btn-link btn-danger btn-lg">Cancel</a>
+            </button>
+            <span class="al" style="color:black;">Already have an account? Login <a href="/login" style="color:red;"><u>Here</u></a></span>
+        </div>
     </div>
 </div>
