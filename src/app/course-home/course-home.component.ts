@@ -16,8 +16,14 @@ import {Message} from '../_models/message';
 export class CourseHomeComponent implements OnInit {
   course_id;
   course_status;
+  submitted_add=false;
+  submitted_m=false;
   username:FormControl;
   message:FormControl;
+  a_s_l=false;
+  a_t_l=false;
+  m_t_l=false;
+  m_s_l=false;
   messages
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -35,36 +41,67 @@ export class CourseHomeComponent implements OnInit {
       console.log(data);
       this.course_status=data['status'];
     });
-    this.username=new FormControl('');
-    this.message=new FormControl('');
+    this.username=new FormControl('',Validators.required);
+    this.message=new FormControl('',Validators.required);
     this.messageService.GET_MESSAGES(this.course_id).subscribe(data1=>this.messages=data1);
   }
   AddStudent(){
+    this.submitted_add=true;
+    if(this.username.invalid){
+      return ;
+    }
+    this.a_s_l=true;
     this.addtocourse.AddToCourse(this.username.value,this.course_id,'student').pipe(first())
     .subscribe(
-      data=>{console.log(data);}
+      data=>{console.log(data);window.alert("Student is added successfully")},
+      error=>{window.alert("adding student is unsuccessful");}
     )
+    this.a_s_l=false;
+    this.submitted_add=false;
   }
   AddTA(){
+    this.submitted_add=true;
+    if(this.username.invalid){
+      return ;
+    }
+    this.a_t_l=true;
     this.addtocourse.AddToCourse(this.username.value,this.course_id,'TA').pipe(first())
     .subscribe(
-      data=>{console.log(data);}
+      data=>{console.log(data);window.alert("TA is added successfully");},
+      error=>{window.alert("adding TA unsuccessful");}
+      
     )
+    this.a_t_l=false;
+    this.submitted_add=false;
   }
   SendTA(){
-    var new_mess=this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'TA').pipe(first())
+    this.submitted_m=true;
+    if(this.message.invalid){
+      return ;
+    }
+    this.m_t_l=true;
+    this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'TA').pipe(first())
     .subscribe(
       data=>{console.log(data)
         this.router.navigate(['course',this.course_id]);
       }
     );
+    this.m_t_l=false;
+    this.submitted_m=true;
   }
   SendStudent(){
+    this.submitted_m=true;
+    if(this.username.invalid){
+      return ;
+    }
+    this.m_s_l=true;
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'student').pipe(first())
     .subscribe(
       data=>{console.log(data)
         this.router.navigate(['course',this.course_id]);
       }
     )
+    this.m_s_l=false;
+    this.submitted_m=false;
   }
 }

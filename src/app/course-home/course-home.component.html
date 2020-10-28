@@ -1,14 +1,20 @@
 <div *ngIf="course_status=='professor'||course_status=='TA'">
     <label class="username">Username:</label>
-    <input type="text" [formControl]="username">
-    <button *ngIf="course_status=='professor'" class="submit" (click)="AddTA()">Add TA</button>
-    <button *ngIf="course_status=='TA'||course_status=='professor'" class="submit" (click)="AddStudent()">Add Student</button>
+    <input type="text" [formControl]="username" [ngClass]="{ 'is-invalid': submitted_add && username.errors }">
+    <div *ngIf="submitted_add && username.errors" class="invalid-feedback">
+        <div *ngIf="username.errors.required">Username is required</div>
+    </div>
+    <button [disabled]="a_t_l" *ngIf="course_status=='professor'" class="submit" (click)="AddTA()">Add TA</button>
+    <button [disabled]="a_s_l" *ngIf="course_status=='TA'||course_status=='professor'" class="submit" (click)="AddStudent()">Add Student</button>
 </div>
 <div *ngIf="course_status=='professor'||course_status=='TA'">
     <label class="message">Message:</label>
-    <input type="text" [formControl]="message">
-    <button *ngIf="course_status=='professor'" class="submit" (click)="SendTA()">Send to TA</button>
-    <button *ngIf="course_status=='TA'||course_status=='professor'" class="submit" (click)="SendStudent()">Send to Students</button>
+    <input type="text" [formControl]="message" [ngClass]="{ 'is-invalid': submitted_m && message.errors }">
+    <div *ngIf="submitted_m && message.errors" class="invalid-feedback">
+        <div *ngIf="message.errors.required">Message cannot be empty</div>
+    </div>
+    <button [disabled]="m_t_l" *ngIf="course_status=='professor'" class="submit" (click)="SendTA()">Send to TA</button>
+    <button [disabled]="m_s_l" *ngIf="course_status=='TA'||course_status=='professor'" class="submit" (click)="SendStudent()">Send to Students</button>
 </div>
 <div *ngFor="let message of messages">
 {{message.message}}
