@@ -26,6 +26,7 @@ export class AddCourseComponent implements OnInit {
   }
   get f() { return this.CourseForm.controls; }
   onSubmit(){
+    
     this.submitted = true;
     if (this.CourseForm.invalid) {
       return;

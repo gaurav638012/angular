@@ -99,7 +99,7 @@ export class CourseHomeComponent implements OnInit {
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'student').pipe(first())
     .subscribe(
       data=>{console.log(data);
-        this.router.navigate(['course',this.course_id]);
+        location.reload();
       }
     )
     this.m_s_l=false;
