@@ -42,8 +42,8 @@ export class CourseHomeComponent implements OnInit {
       console.log(data);
       this.course_status=data['status'];
     });
-    this.username=new FormControl('');
-    this.message=new FormControl('');
+    this.username=new FormControl('',Validators.required);
+    this.message=new FormControl('',Validators.required);
     this.messageService.GET_MESSAGES(this.course_id).subscribe(data1=>this.messages=data1);
   }
   AddStudent(){
