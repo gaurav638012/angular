@@ -87,7 +87,7 @@ export class CourseHomeComponent implements OnInit {
       }
     );
     this.m_t_l=false;
-    this.submitted_m=true;
+    this.submitted_m=false;
   }
   SendStudent(){
     this.submitted_m=true;
