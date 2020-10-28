@@ -6,4 +6,6 @@ export interface Message {
     course:number;
     by:number;
     read_by:Array<number>;
+    from_username:string;
+    is_professor:boolean;
 }

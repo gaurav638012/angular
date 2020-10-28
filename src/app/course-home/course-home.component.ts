@@ -83,7 +83,7 @@ export class CourseHomeComponent implements OnInit {
     this.m_t_l=true;
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'TA').pipe(first())
     .subscribe(
-      data=>{console.log(data)
+      data=>{console.log(data);
         this.router.navigate(['course',this.course_id]);
       }
     );
@@ -92,13 +92,13 @@ export class CourseHomeComponent implements OnInit {
   }
   SendStudent(){
     this.submitted_m=true;
-    if(this.username.invalid){
+    if(this.message.invalid){
       return ;
     }
     this.m_s_l=true;
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'student').pipe(first())
     .subscribe(
-      data=>{console.log(data)
+      data=>{console.log(data);
         this.router.navigate(['course',this.course_id]);
       }
     )
