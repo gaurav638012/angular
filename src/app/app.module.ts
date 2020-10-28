@@ -15,6 +15,8 @@ import { CourseHomeComponent } from './course-home/course-home.component';
 import { combineAll } from 'rxjs/operators';
 import { AboutComponent } from './about/about.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatExpansionModule }from '@angular/material/expansion';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,8 +43,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       {path: 'logout', component: LogoutComponent},
       {path:'**',component:LoginComponent},
     ]),
-    NgbModule
-    ],
+    NgbModule,
+    MatExpansionModule,
+    NoopAnimationsModule,
+  ],
   providers: [
     UserService,
   ],

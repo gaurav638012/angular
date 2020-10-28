@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class TopBarComponent implements OnInit {
   logged_in;
-  interval=setInterval(()=>{this.check_logIN();},300);
+  interval=setInterval(()=>{this.check_logIN();},15000);
   constructor(
   ) { 
   }
