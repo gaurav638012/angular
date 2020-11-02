@@ -19,7 +19,7 @@ export class AddCourseService {
     private http:HttpClient,
   ) { }
   addCourse(data:Course): Observable<CourseStatus>{
-    var ADD_COURSE_URL=COURSE_URL+localStorage.getItem('user')+'/';
+    var ADD_COURSE_URL=COURSE_URL;
     return this.http.post<CourseStatus>(ADD_COURSE_URL,data,httpOptions);
   }
 }

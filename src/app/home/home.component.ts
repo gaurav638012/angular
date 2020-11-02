@@ -17,10 +17,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if((localStorage.getItem('user')==null)||(localStorage.getItem('user')=='undefined'))
-    {
-      this.router.navigate(['/login']);
-    }
     this.who.WHO().subscribe(data => {console.log(data);
                                       this.courses = data;
                                     });

@@ -17,11 +17,11 @@ export class MessageService {
     private http:HttpClient,
   ) { }
   GET_MESSAGES(id:number):Observable<Message>{
-    const URL=BASE_URL+'/api/messages/'+id.toString()+'/'+localStorage.getItem('user')+'/';
+    const URL=BASE_URL+'/api/messages/'+id.toString()+'/';
     return this.http.get<Message>(URL,httpOptions);
   }
   SEND_MESSAGE(id:number,message:string,to:string): Observable<Message>{
-    const URL=BASE_URL+'/api/messages/'+id.toString()+'/'+localStorage.getItem('user')+'/';
+    const URL=BASE_URL+'/api/messages/'+id.toString()+'/';
     var data={};
     data['to']=to;
     data['message']=message;

@@ -18,7 +18,7 @@ export class AddToCourseService {
     private http:HttpClient
   ) { }
   AddToCourse(username:string,id:number,status:string): Observable<CourseStatus>{
-    const URL=BASE_URL+'/api/user/'+id.toString()+'/'+username+'/'+localStorage.getItem('user')+'/';
+    const URL=BASE_URL+'/api/user/'+id.toString()+'/'+username+'/';
     var data = {};
     data['status']=status
     return this.http.post<CourseStatus>(URL,data,httpOptions);

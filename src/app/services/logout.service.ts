@@ -17,9 +17,9 @@ export class LogoutService {
     private http: HttpClient,
   ) {
   }
-  logout(){
-    const USE_URL=LOGOUT_URL+localStorage.getItem('user')+'/'
-    console.log(USE_URL)
-    return this.http.get(USE_URL, httpOptions);
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expires_at');
+    console.log("hi");
   }
 }

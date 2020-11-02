@@ -7,7 +7,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import {UserService} from './services/user.service';
 import { LogoutComponent } from './logout/logout.component';
 import { AddCourseComponent } from './add-course/add-course.component'
@@ -17,6 +17,7 @@ import { AboutComponent } from './about/about.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatExpansionModule }from '@angular/material/expansion';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {AuthenticationService,AuthGuard,AuthInterceptor} from './services/authentication.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,13 +35,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
+      {path: '', component: HomeComponent,canActivate:[AuthGuard]},
       {path: 'about', component: AboutComponent},
-      {path: 'addcourse',component: AddCourseComponent},
-      {path: 'course/:id', component: CourseHomeComponent},
+      {path: 'addcourse',component: AddCourseComponent,canActivate:[AuthGuard]},
+      {path: 'course/:id', component: CourseHomeComponent,canActivate:[AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'logout', component: LogoutComponent},
+      {path: 'logout', component: LogoutComponent,canActivate:[AuthGuard]},
       {path:'**',component:LoginComponent},
     ]),
     NgbModule,
@@ -49,6 +50,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     UserService,
+    AuthenticationService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

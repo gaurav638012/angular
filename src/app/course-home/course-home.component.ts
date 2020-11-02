@@ -54,7 +54,7 @@ export class CourseHomeComponent implements OnInit {
     this.a_s_l=true;
     this.addtocourse.AddToCourse(this.username.value,this.course_id,'student').pipe(first())
     .subscribe(
-      data=>{console.log(data);window.alert("Student is added successfully")},
+      data=>{console.log(data);window.alert("Student is added successfully");location.reload();},
       error=>{window.alert("adding student is unsuccessful");}
     )
     this.a_s_l=false;
@@ -68,7 +68,7 @@ export class CourseHomeComponent implements OnInit {
     this.a_t_l=true;
     this.addtocourse.AddToCourse(this.username.value,this.course_id,'TA').pipe(first())
     .subscribe(
-      data=>{console.log(data);window.alert("TA is added successfully");},
+      data=>{console.log(data);window.alert("TA is added successfully");location.reload();},
       error=>{window.alert("adding TA unsuccessful");}
       
     )
@@ -84,7 +84,7 @@ export class CourseHomeComponent implements OnInit {
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'TA').pipe(first())
     .subscribe(
       data=>{console.log(data);
-        this.router.navigate(['course',this.course_id]);
+        location.reload();
       }
     );
     this.m_t_l=false;

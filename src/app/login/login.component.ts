@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import {AuthenticationService} from '../services/authentication.service';
+import {UserwhoService} from '../services/userwho.service';
+import { User } from '../_models';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
+        private idService:UserwhoService,
         )
     {
         // redirect to home if already logged in
@@ -59,21 +62,24 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    console.log(data['token_form']);
-                    if(data['token_form']==null||data['token_form']=='undefined'){
+                    const tok=localStorage.getItem('token');
+                    if(tok==null||tok=='undefined'){
                         this.loading=false;
                         window.alert('invalid login');
                         this.router.navigate(['login']);
                     }
                     else{
-                        localStorage.setItem('user', data['token_form']);
-                        this.router.navigate([this.returnUrl]);
-                        if(data['is_professor']==true){
-                            localStorage.setItem('is_professor','true');
-                        }
-                        else{
-                            localStorage.setItem('is_professor','false');
-                        }
+                        this.idService.IDENTITY().pipe(first())
+                        .subscribe(
+                            data=>{console.log(data);
+                            if(data['is_professor']==true){
+                                localStorage.setItem('is_professor','true');
+                            }
+                            else{
+                                localStorage.setItem('is_professor','false');
+                            }
+                            this.router.navigate([this.returnUrl]);
+                        });
                     }
                     
                 },
