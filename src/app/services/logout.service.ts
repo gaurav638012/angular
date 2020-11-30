@@ -18,8 +18,10 @@ export class LogoutService {
   ) {
   }
   logout() {
+    /*
     localStorage.removeItem('token');
-    localStorage.removeItem('expires_at');
+    localStorage.removeItem('expires_at');*/
+    localStorage.clear();
     console.log("hi");
   }
 }

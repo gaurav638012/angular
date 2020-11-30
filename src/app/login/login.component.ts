@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         )
     {
         // redirect to home if already logged in
-        if (localStorage.getItem('user')!=null && localStorage.getItem('user')!="undefined") {
+        if (localStorage.getItem('token')!=null && localStorage.getItem('token')!="undefined") {
             this.router.navigate(['/']);
         }
     }

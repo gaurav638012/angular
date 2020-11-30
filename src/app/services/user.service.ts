@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from '../_models';
 import {UserMy} from '../_models/user-my';
 import {BASE_URL} from  './base';
-const REGISTER_URL = BASE_URL+'/api/user/asc/';
+const REGISTER_URL = BASE_URL+'/api/user/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
