@@ -41,7 +41,7 @@ import {AuthenticationService,AuthGuard,AuthInterceptor} from './services/authen
       {path: 'course/:id', component: CourseHomeComponent,canActivate:[AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'logout', component: LogoutComponent,canActivate:[AuthGuard]},
+      {path: 'logout', component: LogoutComponent,},
       {path:'**',component:LoginComponent},
     ]),
     NgbModule,
