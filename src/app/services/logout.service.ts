@@ -17,6 +17,9 @@ export class LogoutService {
     private http: HttpClient,
   ) {
   }
+  /**
+   * This function just clears local storage and logs out
+   */
   logout() {
     /*
     localStorage.removeItem('token');

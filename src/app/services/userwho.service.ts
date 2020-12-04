@@ -18,14 +18,24 @@ export class UserwhoService {
   constructor(
     private http: HttpClient,
   ) { }
+  /**
+   * 
+   */
   WHO(){
     const USE_URL = BASE_URL+'/api/courses/';
     return this.http.get(USE_URL, httpOptions);
   }
+  /**
+   * 
+   * @param id 
+   */
   STATUS(id:number){
     const USE_URL=BASE_URL+'/api/user/'+id.toString()+'/abc/';
     return this.http.get(USE_URL,httpOptions);
   }
+  /**
+   * 
+   */
   IDENTITY(){
     const USE_URL = BASE_URL + '/api/usermy/';
     return this.http.get(USE_URL,httpOptions);

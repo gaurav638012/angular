@@ -15,25 +15,52 @@ import {Message} from '../_models/message';
   styleUrls: ['./course-home.component.scss']
 })
 export class CourseHomeComponent implements OnInit {
+  /**
+   * this stores course id
+   */
   course_id;
   course_status;
+  /**
+   * to store if add person option is chosen
+   */
   submitted_add=false;
+  /**
+   * to store if send message is chosen
+   */
   submitted_m=false;
   username:FormControl;
-  message:FormControl;
+  message:FormGroup;
+  /**
+   * add student loading to check if the process is loading
+   */
   a_s_l=false;
+  /**
+   * add TA loading to check if the process is loading
+   */
   a_t_l=false;
+  /**
+   * message TA loading to check if the process is loading.Note only profs can send message to TA and student can't see them
+   */
   m_t_l=false;
+  /**
+   * message student loading to check if the process is loading
+   */
   m_s_l=false;
+  /**
+   * to store the set of messages sent in the course to render in the html
+   */
   messages
   constructor(
+    private formBuilder: FormBuilder,
     private activatedRoute:ActivatedRoute,
     private who:UserwhoService,
     private addtocourse:AddToCourseService,
     private messageService:MessageService,
     private router:Router,
   ) { }
-
+  /**
+   * 
+   */
   ngOnInit(): void {
     this.course_id=this.activatedRoute.snapshot.paramMap.get('id');
     this.who.STATUS(this.course_id)
@@ -43,8 +70,15 @@ export class CourseHomeComponent implements OnInit {
       this.course_status=data['status'];
     });
     this.username=new FormControl('',Validators.required);
-    this.message=new FormControl('',Validators.required);
+    this.message=this.formBuilder.group({
+      message_text: ['', Validators.required],
+      message_priority: [false, Validators.required]
+  });
     this.messageService.GET_MESSAGES(this.course_id).subscribe(data1=>this.messages=data1);
+  }
+  get f()
+  {
+    return this.message.controls;
   }
   AddStudent(){
     this.submitted_add=true;

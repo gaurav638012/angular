@@ -13,9 +13,17 @@ import { User } from '../_models';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+    /**
+     * stores input data
+     */
     loginForm: FormGroup;
+    /**
+     * variable to account for server/website loading
+     */
     loading = false;
+    /**
+     * check if user submitted the data
+     */
     submitted = false;
     returnUrl: string;
 
@@ -45,10 +53,21 @@ export class LoginComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
+
+    /**
+     * function to return form controls
+     */
     get f(){
         return this.loginForm.controls;
     }
 
+    /**
+     * this function performs the logic
+     * if form is invalid stop
+     * check for invalid login and if success then call idService
+     * if the login was successful after matching the data then redirect to the course page
+     * else window alert that login was unsuccessful
+     */
     onSubmit() {
         this.submitted = true;
 

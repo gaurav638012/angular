@@ -121,7 +121,11 @@ export class AuthInterceptor implements HttpInterceptor {
 export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthenticationService, private router: Router, private logout:LogoutService) { }
-
+  /**
+   * @return this returns a boolean value which tells whether its logged in or not
+   * If you are logged in this refreshes the token to make sure the website isnt idle for long
+   * If not logged in it logs out and redirects to login page
+   */
   canActivate() {
     if (this.authService.isLoggedIn()) {
       this.authService.refreshToken();
