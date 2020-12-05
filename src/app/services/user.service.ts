@@ -5,6 +5,7 @@ import { User } from '../_models';
 import {UserMy} from '../_models/user-my';
 import {UserMyList} from '../_models/list_of_student';
 import {BASE_URL} from  './base';
+import { ConstantPool } from '@angular/compiler';
 const REGISTER_URL = BASE_URL+'/api/user/';
 const httpOptions = {
   headers: new HttpHeaders({
@@ -33,6 +34,7 @@ export class UserService {
     var url=BASE_URL+'/api/usercourse/'+id.toString()+'/';
     var data={};
     data['username']=username;
-    this.http.post(url,data,httpOptions);
+    console.log("hello bro");
+    return this.http.post(url,data,httpOptions);
   }
 }

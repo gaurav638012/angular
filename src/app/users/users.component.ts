@@ -45,8 +45,9 @@ is_professor:boolean;
 
   delete_student(username:string)
   {
+    console.log("i am a jackasss");
+    this.userservice.delete_students(this.course_id,username).subscribe(data=>{location.reload()});
     
-    this.userservice.delete_students(this.course_id,username);
   }
 
 
