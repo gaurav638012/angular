@@ -44,6 +44,7 @@ import { ReadComponent } from './read/read.component';
       {path: 'addcourse',component: AddCourseComponent,canActivate:[AuthGuard]},
       {path: 'course/:id', component: CourseHomeComponent,canActivate:[AuthGuard]},
       {path: 'course/:id/list', component: UsersComponent,canActivate:[AuthGuard]},
+      {path: 'course/:id/read', component: ReadComponent,canActivate:[AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'logout', component: LogoutComponent,},

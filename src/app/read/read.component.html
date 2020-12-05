@@ -1,1 +1,5 @@
-<p>read works!</p>
+<h1>Students who read the message</h1>
+<div *ngFor="let reader of read_list">
+    <p>{{reader.username}}</p>
+    <br>
+</div>

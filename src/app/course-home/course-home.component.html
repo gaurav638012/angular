@@ -63,7 +63,7 @@
             <div *ngIf="message.from_username==='professor'">
                 <div class="card bg-light text-red prof">
                     <div class="card-header">
-                        <p>{{message.from_username}}</p>
+                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color: red;">{{message.message}}</p>
@@ -73,7 +73,7 @@
             <div *ngIf="!(message.from_username==='professor')">
                 <div class="card bg-light text-red TA">
                     <div class="card-header">
-                        <p>{{message.from_username}}</p>
+                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color: red;">{{message.message}}</p>
@@ -85,7 +85,7 @@
             <div *ngIf="message.from_username==='professor'">
                 <div class="card bg-light text-red prof">
                     <div class="card-header">
-                        <p class="title-style">{{message.from_username}}</p>
+                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color:green;">{{message.message}}</p>
@@ -95,7 +95,7 @@
             <div *ngIf="!(message.from_username==='professor')">
                 <div class="card bg-light TA">
                     <div class="card-header">
-                        <p class="title-style">{{message.from_username}}</p>
+                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color:green;">{{message.message}}</p>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Message} from '../_models/message';
+import {ReadBy} from '../_models/read_by';
 import {MessageSent} from '../_models/message_sent';
 import {BASE_URL} from './base';
 const httpOptions = {
@@ -37,5 +38,10 @@ export class MessageService {
    // window.alert(data['prior']);
     console.log(data);
     return this.http.post<Message>(URL,data,httpOptions);
+  }
+  READ_MESSAGE(id:number)
+  {
+    const URL=BASE_URL+'/readby/'+id.toString()+'/';
+    return this.http.get<ReadBy>(URL,httpOptions);
   }
 }

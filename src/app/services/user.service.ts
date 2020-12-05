@@ -28,4 +28,11 @@ export class UserService {
     var url=BASE_URL+'/api/usercourse/'+id.toString()+'/';
     return this.http.get<UserMyList>(url,httpOptions);
   }
+  delete_students(id:number,username:string)
+  {
+    var url=BASE_URL+'/api/usercourse/'+id.toString()+'/';
+    var data={};
+    data['username']=username;
+    this.http.post(url,data,httpOptions);
+  }
 }

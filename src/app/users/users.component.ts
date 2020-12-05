@@ -27,12 +27,12 @@ is_professor:boolean;
 
   ngOnInit(): void {
     this.course_id=this.activatedRoute.snapshot.paramMap.get('id');
-    window.alert(this.course_id);
+    //window.alert(this.course_id);
     this.userservice.get_students(this.course_id).subscribe((data)=>{this.list_of_students=data;});
-    this.DELETE_URL=BASE_URL+'/api/usercourse/'+this.course_id.toString()+'/';
-    console.log("haio");
-    console.log("hell");
-    console.log(this.list_of_students)
+    
+    //console.log("haio");
+    //console.log("hell");
+    //console.log(this.list_of_students)
 
     //window.alert(this.list_of_students.length());
     if(localStorage.getItem('is_professor')=='true'){
@@ -45,9 +45,8 @@ is_professor:boolean;
 
   delete_student(username:string)
   {
-    var data={};
-    data['username']=username;
-    this.http.post(this.DELETE_URL,data,httpOptions);
+    
+    this.userservice.delete_students(this.course_id,username);
   }
 
 
