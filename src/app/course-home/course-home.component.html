@@ -58,19 +58,90 @@
 
 <div class = "container">
     <h2 class = "message-title">Previous Messages</h2>
-    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">
-        <ul>
-            <div>
-                <li *ngIf="message.prior">{{message.message}}</li> 
+    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">     
+        <div *ngIf="message.prior">
+            <div *ngIf="message.from_username==='professor'">
+                <div class="card bg-light text-red prof">
+                    <div class="card-header">
+                        <p>{{message.from_username}}</p>
+                    </div>
+                    <div class="class-body">
+                        <p style="color: red;">{{message.message}}</p>
+                    </div>
+                </div>
             </div>
-        </ul>
+            <div *ngIf="!(message.from_username==='professor')">
+                <div class="card bg-light text-red TA">
+                    <div class="card-header">
+                        <p>{{message.from_username}}</p>
+                    </div>
+                    <div class="class-body">
+                        <p style="color: red;">{{message.message}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <div *ngIf="!message.prior">
+            <div *ngIf="message.from_username==='professor'">
+                <div class="card bg-light text-red prof">
+                    <div class="card-header">
+                        <p class="title-style">{{message.from_username}}</p>
+                    </div>
+                    <div class="class-body">
+                        <p style="color:green;">{{message.message}}</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!(message.from_username==='professor')">
+                <div class="card bg-light TA">
+                    <div class="card-header">
+                        <p class="title-style">{{message.from_username}}</p>
+                    </div>
+                    <div class="class-body">
+                        <p style="color:green;">{{message.message}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+   <!-- <h3 class = "message-title">Low Priority Messages:</h3>
+    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">     
+        <div *ngIf="!message.prior">
+            <div *ngIf="message.from_username==='professor'">
+                <div class="card bg-light text-red prof">
+                    <div class="card-header">
+                        <p class="title-style">{{message.from_username}}</p>
+                    </div>
+                    <div class="class-body">
+                        <p style="color:green;">{{message.message}}</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="message.from_username==='TA'">
+                <div class="card bg-light text-red TA">
+                    <div class="card-header">
+                        <p class="title-style">{{message.from_username}}</p>
+                    </div>
+                    <div class="class-body">
+                        <p style="color:green;">{{message.message}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>       
     </div>
     
-    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">
-        <ul>
-            <div>
-                <li *ngIf="!message.prior">{{message.message}}</li> 
+    <h3 class = "message-title">Low Priority Messages:</h3>
+    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">     
+        <div *ngIf="!message.prior">
+            <div class="card bg-light text-green">
+                <div class="card-header">
+                    <p>{{message.from_username}}</p>
+                </div>
+                <div class="class-body">
+                    <p style="color:green;">{{message.message}}</p>
+                </div>
             </div>
-        </ul>
-    </div>
+        </div>       
+    </div>-->
 </div>

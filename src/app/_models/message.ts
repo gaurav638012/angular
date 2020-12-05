@@ -8,6 +8,7 @@ export interface Message {
     to:string;
     course:number;
     by:number;
+    prior:boolean;
     /**
      * It stores who all read the message
      */

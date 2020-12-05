@@ -18,6 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatExpansionModule }from '@angular/material/expansion';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthenticationService,AuthGuard,AuthInterceptor} from './services/authentication.service';
+import { UsersComponent } from './users/users.component';
+import { ReadComponent } from './read/read.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,8 @@ import {AuthenticationService,AuthGuard,AuthInterceptor} from './services/authen
     AddCourseComponent,
     CourseHomeComponent,
     AboutComponent,
+    UsersComponent,
+    ReadComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import {AuthenticationService,AuthGuard,AuthInterceptor} from './services/authen
       {path: 'about', component: AboutComponent},
       {path: 'addcourse',component: AddCourseComponent,canActivate:[AuthGuard]},
       {path: 'course/:id', component: CourseHomeComponent,canActivate:[AuthGuard]},
+      {path: 'course/:id/list', component: UsersComponent,canActivate:[AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'logout', component: LogoutComponent,},

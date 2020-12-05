@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models';
 import {UserMy} from '../_models/user-my';
+import {UserMyList} from '../_models/list_of_student';
 import {BASE_URL} from  './base';
 const REGISTER_URL = BASE_URL+'/api/user/';
 const httpOptions = {
@@ -21,5 +22,10 @@ export class UserService {
   register(user: User): Observable<UserMy>
   {
     return this.http.post<UserMy>(REGISTER_URL, user, httpOptions);
+  }
+  get_students(id:number):Observable<UserMyList>
+  { 
+    var url=BASE_URL+'/api/usercourse/'+id.toString()+'/';
+    return this.http.get<UserMyList>(url,httpOptions);
   }
 }
