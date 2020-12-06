@@ -25,6 +25,6 @@ export class LogoutService {
     localStorage.removeItem('token');
     localStorage.removeItem('expires_at');*/
     localStorage.clear();
-    console.log("hi");
+    //console.log("hi");
   }
 }

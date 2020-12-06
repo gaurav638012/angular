@@ -77,15 +77,19 @@ export class RegisterComponent implements OnInit {
     get f1() {return this.auth_code_form.controls;}
 
     /**
-     * this function performs the logic when the user submits 
-     * first checks if the field values are invalid if yes stops
-     * then it checks for the authentication code status
+     * This function performs the logic when the user submits 
+     * 
+     * First checks if the field values are invalid if yes stops
+     * 
+     * Then it checks for the authentication code status
+     * 
      * It verifies with the regular expression and if matches proceeds by calling the register service
+     * 
      * If everything is successful it takes back to login page else window alert message    */
     onSubmit() {
         this.submitted = true;
-      console.log(this.submitted);
-        // stop here if form is invalid
+      //console.log(this.submitted);
+        
         if (this.registerForm.invalid || this.auth_code_form.invalid) {
             return;
         }
@@ -131,6 +135,6 @@ export class RegisterComponent implements OnInit {
                     window.alert("registration unsuccessful");
                     this.loading = false;
                 });
-          console.log(this.registerForm.value);
+          //console.log(this.registerForm.value);
     }
 }

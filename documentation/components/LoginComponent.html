@@ -352,19 +352,20 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/app/login/login.component.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/app/login/login.component.ts:77</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>this function performs the logic
-if form is invalid stop
-check for invalid login and if success then call idService
-if the login was successful after matching the data then redirect to the course page
-else window alert that login was unsuccessful</p>
+                    <div class="io-description"><p>This function performs the logic</p>
+<p>If form is invalid stop</p>
+<p>Check for invalid login and if success then call idService</p>
+<p>If the login was successful after matching the data then redirect to the course page</p>
+<p>Also before moving onto the home page the function also sets the is_professor variable in the local storage which will be used</p>
+<p>Else window alert that login was unsuccessful</p>
 </div>
 
                     <div class="io-description">
@@ -573,7 +574,7 @@ export class LoginComponent implements OnInit {
      */
     submitted &#x3D; false;
     returnUrl: string;
-
+    
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -609,11 +610,17 @@ export class LoginComponent implements OnInit {
     }
 
     /**
-     * this function performs the logic
-     * if form is invalid stop
-     * check for invalid login and if success then call idService
-     * if the login was successful after matching the data then redirect to the course page
-     * else window alert that login was unsuccessful
+     * This function performs the logic
+     * 
+     * If form is invalid stop
+     * 
+     * Check for invalid login and if success then call idService
+     * 
+     * If the login was successful after matching the data then redirect to the course page
+     * 
+     * Also before moving onto the home page the function also sets the is_professor variable in the local storage which will be used
+     * 
+     * Else window alert that login was unsuccessful
      */
     onSubmit() {
         this.submitted &#x3D; true;
@@ -803,7 +810,7 @@ background-size: contain;&quot; class&#x3D;&quot;card bg-light text-white&quot;&
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /><div style="background-image: url(assets/login.jpg); height: 100%; background-position: center;background-repeat: no-repeat;background-size: contain;" class="card bg-light text-white">    <div class="card-header">        <i class="fa fa-lock"></i> Login    </div>    <div class="class-body">        <div class="space-it">            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">                <div class="form-group">                    <input type="text" placeholder="Enter Username" formControlName="username" class="form-control" [ngClass]="{ \'is-invalid\': submitted && f.username.errors }" />                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">                        <div class="required" *ngIf="f.username.errors.required">Username is required</div>                    </div>                </div>                <div class="form-group">                    <input type="password" placeholder="Enter Password" formControlName="password" class="form-control" [ngClass]="{ \'is-invalid\': submitted && f.password.errors }" />                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">                        <div class="required" *ngIf="f.password.errors.required">Password is required</div>                    </div>                </div>                <div class="button form-group">                    <button [disabled]="loading" class="login_button">                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>                        Login                                            </button>                    <span class="dont-have" style="color:black; font-size: 15px;">Don\'t have an account? Sign Up <a href="/register" style = "color:white;"><u>Here</u></a></span>                </div>            </form>        </div>        <!--<div class="container">    <label for="uname"><b>Username</b></label>    <input type="text" placeholder="Enter Username" name="uname" required>    <label for="psw"><b>Password</b></label>    <input type="password" placeholder="Enter Password" name="psw" required>            <button type="submit">Login</button>    <label>      <input type="checkbox" checked="checked" name="remember"> Remember me    </label>  </div>-->    </div></div></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'}];
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ReadComponent', 'selector': 'app-read'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

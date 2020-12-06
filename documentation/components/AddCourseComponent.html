@@ -325,14 +325,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/add-course/add-course.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/add-course/add-course.component.ts:40</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>If the course form is invalid it stops</p>
+<p>It calss addCourse service to add the course of given details</p>
+<p>If it is a success it navigates to the home page which will also show the newly added course</p>
+<p>Else it stays at the same page</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -449,9 +454,16 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/add-course/add-course.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/add-course/add-course.component.ts:30</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>To return form controls to the html page</p>
+</div>
+
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -486,7 +498,19 @@ export class AddCourseComponent implements OnInit {
       code: [&#x27;&#x27;, [Validators.required, Validators.maxLength(5)]]
   });
   }
+  /**
+   * To return form controls to the html page
+   */
   get f() { return this.CourseForm.controls; }
+  /**
+   * If the course form is invalid it stops
+   * 
+   * It calss addCourse service to add the course of given details
+   * 
+   * If it is a success it navigates to the home page which will also show the newly added course
+   * 
+   * Else it stays at the same page
+   */
   onSubmit(){
     
     this.submitted &#x3D; true;
@@ -494,7 +518,7 @@ export class AddCourseComponent implements OnInit {
       return;
     }
     this.loading &#x3D; true;
-    console.log(this.CourseForm.value);
+   // console.log(this.CourseForm.value);
     this.addCourse.addCourse(this.CourseForm.value)
             .pipe(first())
             .subscribe(
@@ -502,7 +526,7 @@ export class AddCourseComponent implements OnInit {
                         this.router.navigate([&#x27;home&#x27;]);
                 },
                 error &#x3D;&gt; {
-                    console.log(error);
+                   // console.log(error);
                     this.router.navigate([&#x27;addcourse&#x27;]);
                 });
   }
@@ -629,7 +653,7 @@ input[type&#x3D;&quot;radio&quot;] {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /><div class="card bg-secondary text-white">    <div class="card-header">Add a Course!</div>    <div class="card-body">        <form [formGroup]="CourseForm">            <div class="form-group">                <label for="name" style="font-size: 20px;">Name</label>                <input type="text" placeholder="course name" formControlName="name" class="form-control" [ngClass]="{ \'is-invalid\': submitted && f.name.errors }" />                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">                    <div class="required" *ngIf="f.name.errors.required">Name is required</div>                </div>            </div>            <div class="form-group">                <label for="code" style="font-size: 20px;">Code</label>                <input type="text" placeholder="course code" formControlName="code" class="form-control" [ngClass]="{ \'is-invalid\': submitted && f.code.errors }" />                <div *ngIf="submitted && f.code.errors" class="invalid-feedback">                    <div class="required" *ngIf="f.code.errors.required">Code is required</div>                    <div class="required" *ngIf="f.code.errors.maxlength">Code must be 5 characters</div>                </div>            </div>            <div class="form-group">                <span class="add">                    <button type="button" [disabled]="loading" class="btn btn-primary btn-lg" (click)="onSubmit()" >                                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Add Course                </button>                </span>                <button class="btn">                    <a routerLink="/" class="cancel btn btn-link btn-danger btn-lg" >Cancel</a>                </button>            </div>        </form>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'}];
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ReadComponent', 'selector': 'app-read'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AddCourseComponent'};
 </script>

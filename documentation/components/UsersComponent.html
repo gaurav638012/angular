@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>HomeComponent</li>
+  <li>UsersComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/home/home.component.ts</code>
+    <code>src/app/users/users.component.ts</code>
 </p>
 
 
@@ -91,19 +91,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-home</code></td>
+                <td class="col-md-9"><code>app-users</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./home.component.scss</code></td>
+                <td class="col-md-9"><code>./users.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./home.component.html</code></td>
+                <td class="col-md-9"><code>./users.component.html</code></td>
             </tr>
 
 
@@ -130,10 +130,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#courses">courses</a>
+                                <a href="#course_id">course_id</a>
                             </li>
                             <li>
                                 <a href="#is_professor">is_professor</a>
+                            </li>
+                            <li>
+                                <a href="#list_of_students">list_of_students</a>
                             </li>
                         </ul>
                     </td>
@@ -148,7 +151,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#AddCourse">AddCourse</a>
+                                <a href="#delete_student">delete_student</a>
                             </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
@@ -171,12 +174,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(who: <a href="../injectables/UserwhoService.html">UserwhoService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authenticationService: <a href="../injectables/AuthenticationService.html">AuthenticationService</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, userservice: <a href="../injectables/UserService.html">UserService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/home/home.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/users/users.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -194,10 +197,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>who</td>
+                                                        <td>http</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserwhoService.html" target="_self" >UserwhoService</a></code>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -206,10 +209,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>router</td>
+                                                        <td>activatedRoute</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -218,10 +221,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>authenticationService</td>
+                                                        <td>userservice</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AuthenticationService.html" target="_self" >AuthenticationService</a></code>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -251,39 +254,73 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="AddCourse"></a>
+                    <a name="delete_student"></a>
                     <span class="name">
                         <b>
-                            AddCourse
+                            delete_student
                         </b>
-                        <a href="#AddCourse"><span class="icon ion-ios-link"></span></a>
+                        <a href="#delete_student"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>AddCourse()</code>
+<code>delete_student(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/home/home.component.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/users/users.component.ts:60</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>This allows the professor to add a new course</p>
-<p>This function leads to a different component add course</p>
-</div>
 
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>username</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>This represents the username of the person to be removed
+This function calls the userservice to delete the student of a particular username </p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -311,16 +348,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/home/home.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/users/users.component.ts:43</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Calls who service to get the set of courses of a person</p>
-<p>Also it updates the is_professor variable </p>
+                    <div class="io-description"><p>First the course id is extracted using activatedRoute from the path</p>
+<p>Then userService is called to get the list_of_students </p>
+<p>Note here the professor cannot remove himself from the course via the UI</p>
+<p>This function also sets the is_professor variable by looking into the local storage to give permission to remove students/TA&#39;s</p>
 </div>
 
                     <div class="io-description">
@@ -341,26 +380,26 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="courses"></a>
+                        <a name="course_id"></a>
                         <span class="name">
                             <b>
-                            courses</b>
-                            <a href="#courses"><span class="icon ion-ios-link"></span></a>
+                            course_id</b>
+                            <a href="#course_id"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/home/home.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/users/users.component.ts:24</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Contains the set of courses the user is associated with</p>
-</div>
-                    </td>
-                </tr>
 
             </tbody>
         </table>
@@ -376,16 +415,48 @@
                         </span>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/home/home.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/users/users.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="list_of_students"></a>
+                        <span class="name">
+                            <b>
+                            list_of_students</b>
+                            <a href="#list_of_students"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/users/users.component.ts:22</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Stores if the user is a professor or not</p>
-<p>The main constraint is that a professor cannot be a student in another course</p>
+                        <div class="io-description"><p>Represents the list of users registered in the course including the professor</p>
 </div>
                     </td>
                 </tr>
@@ -399,127 +470,109 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import {UserwhoService} from &#x27;../services/userwho.service&#x27;;
-import {AuthenticationService} from &#x27;../services/authentication.service&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
+import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import {BASE_URL} from  &#x27;../services/base&#x27;;
+import {UserService} from &#x27;../services/user.service&#x27;;
+const httpOptions &#x3D; {
+  headers: new HttpHeaders({
+    &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+  })
+};
 @Component({
-  selector: &#x27;app-home&#x27;,
-  templateUrl: &#x27;./home.component.html&#x27;,
-  styleUrls: [&#x27;./home.component.scss&#x27;]
+  selector: &#x27;app-users&#x27;,
+  templateUrl: &#x27;./users.component.html&#x27;,
+  styleUrls: [&#x27;./users.component.scss&#x27;]
 })
-export class HomeComponent implements OnInit {
+
+export class UsersComponent implements OnInit {
   /**
-   * Contains the set of courses the user is associated with
-   */
-  courses;
-  /**
-   * Stores if the user is a professor or not
+   * Represents the list of users registered in the course including the professor
    * 
-   * The main constraint is that a professor cannot be a student in another course
    */
-  is_professor;
-  constructor(
-    private who: UserwhoService,
-    private router: Router,
-    private authenticationService : AuthenticationService,
-  ) { }
-  /**
-   * Calls who service to get the set of courses of a person
-   * 
-   * Also it updates the is_professor variable 
-   */
+list_of_students:any;
+
+course_id:any;
+
+is_professor:boolean;
+  constructor(private http:HttpClient,
+    private activatedRoute:ActivatedRoute,
+    private userservice:UserService,
+    ) { 
+    
+  }
+/**
+ * First the course id is extracted using activatedRoute from the path
+ * 
+ * Then userService is called to get the list_of_students 
+ * 
+ * Note here the professor cannot remove himself from the course via the UI
+ * 
+ * This function also sets the is_professor variable by looking into the local storage to give permission to remove students/TA&#x27;s
+ * 
+ */
   ngOnInit(): void {
-    this.who.WHO().subscribe(data &#x3D;&gt; {console.log(data);
-                                      this.courses &#x3D; data;
-                                    });
+    this.course_id&#x3D;this.activatedRoute.snapshot.paramMap.get(&#x27;id&#x27;);
+    this.userservice.get_students(this.course_id).subscribe((data)&#x3D;&gt;{this.list_of_students&#x3D;data;});
+    
     if(localStorage.getItem(&#x27;is_professor&#x27;)&#x3D;&#x3D;&#x27;true&#x27;){
       this.is_professor&#x3D;true;
     }
     else{
       this.is_professor&#x3D;false;
     }
+
   }
-  /**
-   * This allows the professor to add a new course
-   * 
-   * This function leads to a different component add course
-   */
-  AddCourse(){
-    console.log(&#x27;clicked&#x27;);
-    this.router.navigate([&#x27;addcourse&#x27;]);
+/**
+ * 
+ * @param username This represents the username of the person to be removed
+ * This function calls the userservice to delete the student of a particular username 
+ */
+  delete_student(username:string)
+  {
+    this.userservice.delete_students(this.course_id,username).subscribe(data&#x3D;&gt;{location.reload()});
+    
   }
+
 
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot; integrity&#x3D;&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot; crossorigin&#x3D;&quot;anonymous&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;h2&gt;Professor&lt;/h2&gt;
 
-&lt;div class&#x3D;&quot;add_course_button&quot;&gt;
-    &lt;div *ngIf&#x3D;&quot;is_professor&quot;&gt;
-        &lt;button class&#x3D;&quot;btn btn-primary addCourse&quot; (click)&#x3D;&quot;AddCourse()&quot;&gt;Add Course&lt;/button&gt;
+&lt;div *ngFor&#x3D;&quot;let student of list_of_students&quot;&gt; 
+    &lt;div *ngIf&#x3D;&quot;student.is_professor&quot; class&#x3D;&quot; list card  bg-light text-red &quot;&gt;
+        &lt;div  class&#x3D;&quot;card-header&quot;&gt;
+            &lt;p&gt;{{student.username}}&lt;/p&gt;
+        &lt;/div&gt;
+        
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class&#x3D;&quot;flex-container&quot;&gt;
-    &lt;div class&#x3D;&quot;tot&quot; *ngFor&#x3D;&quot;let course of courses;index as i&quot;&gt;
-        &lt;div class&#x3D;&quot;card bg-info shadow-lg&quot;&gt;
-            &lt;img class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;assets/img1.jpg&quot; alt&#x3D;&quot;Card image&quot;&gt;
-            &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                &lt;h3 class&#x3D;&quot;card-title&quot;&gt;{{course.code}}&lt;/h3&gt;
-                &lt;h4&gt;&lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+course.id}}&quot; style&#x3D;&quot;color:white;&quot;&gt; {{course.name}}&lt;/a&gt;&lt;/h4&gt;
-                &lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+course.id+&#x27;/&#x27;+&#x27;list&#x27;}}&quot;&gt;&lt;button&gt;List&lt;/button&gt;&lt;/a&gt;
+&lt;h2&gt;Students and TA&#x27;s&lt;/h2&gt;
+&lt;div *ngFor&#x3D;&quot;let student of list_of_students&quot;&gt; 
+    &lt;div *ngIf&#x3D;&quot;!student.is_professor&quot; class&#x3D;&quot; list card  bg-light text-red &quot;&gt;
+        &lt;div  class&#x3D;&quot;card-header&quot;&gt;
+            &lt;p&gt;{{student.username}}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;is_professor&quot;&gt;
+            &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                &lt;button (click)&#x3D;&quot;delete_student(student.username)&quot;&gt;Remove the student&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./home.component.scss</code>
+                    <code>./users.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.flex-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    padding-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
-    gap: 40px;
-}
-
-.tot {
-    border: 1px solid black;
-}
-
-.card bg-danger {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: calc(50% - 10px);
-    /* separate properties for IE11 upport */
-    background: orange;
-    margin: 5px;
-    padding-top: 30px;
-}
-
-.add_course_button {
-    padding-top: 40px;
-    padding-right: auto;
-    padding-left: 40px;
-        
-}
-
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-
-.addCourse {
-    background-color: red;
+                <pre class="line-numbers"><code class="language-scss">.list{
+    margin-bottom: 3%;
+    margin-right:80%;
 }</code></pre>
     </div>
 
@@ -548,10 +601,10 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><div class="add_course_button">    <div *ngIf="is_professor">        <button class="btn btn-primary addCourse" (click)="AddCourse()">Add Course</button>    </div></div><div class="flex-container">    <div class="tot" *ngFor="let course of courses;index as i">        <div class="card bg-info shadow-lg">            <img class="card-img-top" src="assets/img1.jpg" alt="Card image">            <div class="card-body">                <h3 class="card-title">{{course.code}}</h3>                <h4><a routerLink="{{\'/course/\'+course.id}}" style="color:white;"> {{course.name}}</a></h4>                <a routerLink="{{\'/course/\'+course.id+\'/\'+\'list\'}}"><button>List</button></a>            </div>        </div>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><h2>Professor</h2><div *ngFor="let student of list_of_students">     <div *ngIf="student.is_professor" class=" list card  bg-light text-red ">        <div  class="card-header">            <p>{{student.username}}</p>        </div>            </div></div><h2>Students and TA\'s</h2><div *ngFor="let student of list_of_students">     <div *ngIf="!student.is_professor" class=" list card  bg-light text-red ">        <div  class="card-header">            <p>{{student.username}}</p>        </div>        <div *ngIf="is_professor">            <div class="class-body">                <button (click)="delete_student(student.username)">Remove the student</button>            </div>        </div>    </div></div></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ReadComponent', 'selector': 'app-read'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+    var ACTUAL_COMPONENT = {'name': 'UsersComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -586,7 +639,7 @@ export class HomeComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsersComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

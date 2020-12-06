@@ -1,8 +1,6 @@
-import {Course} from './course';
+/**
+ * interface which represents the username of people who read a particular message
+ */
 export interface ReadBy{
-    /*user: number;
-    is_professor: boolean;
-    token: string;
-    courses: Array<Course>;*/
     username:String;
 }
