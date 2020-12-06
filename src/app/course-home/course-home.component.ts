@@ -20,6 +20,7 @@ export class CourseHomeComponent implements OnInit {
    */
   course_id;
   course_status;
+  course_name;
   /**
    * to store if add person option is chosen
    */
@@ -67,11 +68,13 @@ export class CourseHomeComponent implements OnInit {
    */
   ngOnInit(): void {
     this.course_id=this.activatedRoute.snapshot.paramMap.get('id');
+    this.course_name=this.activatedRoute.snapshot.paramMap.get('name');
     this.who.STATUS(this.course_id)
     .pipe(first())
     .subscribe(data=>{
       console.log(data);
       this.course_status=data['status'];
+      
     });
     this.username=new FormControl('',Validators.required);
     this.message=this.formBuilder.group({

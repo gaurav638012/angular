@@ -42,7 +42,7 @@ import { ReadComponent } from './read/read.component';
       {path: '', component: HomeComponent,canActivate:[AuthGuard]},
       {path: 'about', component: AboutComponent},
       {path: 'addcourse',component: AddCourseComponent,canActivate:[AuthGuard]},
-      {path: 'course/:id', component: CourseHomeComponent,canActivate:[AuthGuard]},
+      {path: 'course/:name/:id', component: CourseHomeComponent,canActivate:[AuthGuard]},
       {path: 'course/:id/list', component: UsersComponent,canActivate:[AuthGuard]},
       {path: 'course/:id/read', component: ReadComponent,canActivate:[AuthGuard]},
       {path: 'login', component: LoginComponent},
