@@ -32,7 +32,7 @@ export class UserService {
   {
     var url=BASE_URL+'/api/usercourse/'+id.toString()+'/';
     var data={};
-    data['username']=username;
+    data["username"]=username;
     this.http.post(url,data,httpOptions);
   }
 }
