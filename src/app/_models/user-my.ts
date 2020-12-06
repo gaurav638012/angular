@@ -11,7 +11,6 @@ export interface UserMy {
      * holds whether the person is a professor or not
      */
     is_professor: boolean;
-    token: string;
     /**
      * contains the list of courses the person is associated.He/She can be 
      * either a Professor or TA or a student

@@ -44,10 +44,10 @@ export class MessageService {
     window.alert(message['message_text']);
     data['prior']=message['message_priority'];
 
-    if(data['prior']=="true")
+    /*if(data['prior']=="true")
       data['prior']=true;
     else
-      data['prior']=false;
+      data['prior']=false;*/
 
    // window.alert(data['prior']);
     console.log(data);
