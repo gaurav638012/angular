@@ -3,8 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Login} from '../_models/login';
 import {UserMy} from '../_models/user-my';
-import {UserToken} from '../_models/user-token';
-import * as uuid from 'uuid';
+//import {UserToken} from '../_models/user-token';
+//import * as uuid from 'uuid';
 import {BASE_URL} from './base';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { CanActivate, Router } from '@angular/router';
@@ -16,11 +16,11 @@ import * as moment from 'moment';
 const LOGIN_URL = BASE_URL+'/api/auth/get-token/';
 const REFRESH_URL = BASE_URL+'/api/auth/refresh-token/';
 
-const httpOptions = {
+/*const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
   })
-};
+};*/
 interface JWTPayload {
   user_id: number;
   username: string;

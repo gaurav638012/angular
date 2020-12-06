@@ -172,14 +172,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/services/user.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/services/user.service.ts:51</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This service removes a user from the course by making a POST request</p>
+<p>Note:U cant remove the professor via this service</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -189,6 +192,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -203,6 +207,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Course Id</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>username</td>
@@ -215,6 +223,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Username of a User</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -254,14 +266,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/services/user.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/services/user.service.ts:38</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This fetches the list of Users registered for the course by making a GET request</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -271,6 +285,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -285,6 +300,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Course Id</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -296,7 +315,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Array of User Objects present in the course</p>
+
                     </div>
                 </td>
             </tr>
@@ -324,14 +344,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/services/user.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/services/user.service.ts:27</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Makes a POST request to register a User Object in the dashboard</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -341,6 +363,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -355,6 +378,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>User object to be registered</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -400,15 +427,34 @@ export class UserService {
   constructor(private http: HttpClient)
   {
   }
+  /**
+   * Makes a POST request to register a User Object in the dashboard
+   * @param user User object to be registered
+   */
   register(user: User): Observable&lt;UserMy&gt;
   {
     return this.http.post&lt;UserMy&gt;(REGISTER_URL, user, httpOptions);
   }
+  /**
+   * This fetches the list of Users registered for the course by making a GET request
+   * 
+   * @param id Course Id
+   * 
+   * @return Array of User Objects present in the course
+   */
   get_students(id:number):Observable&lt;UserMyList&gt;
   { 
     var url&#x3D;BASE_URL+&#x27;/api/usercourse/&#x27;+id.toString()+&#x27;/&#x27;;
     return this.http.get&lt;UserMyList&gt;(url,httpOptions);
   }
+  /**
+   * This service removes a user from the course by making a POST request
+   * 
+   * Note:U cant remove the professor via this service
+   * 
+   * @param id Course Id
+   * @param username Username of a User
+   */
   delete_students(id:number,username:string)
   {
     var url&#x3D;BASE_URL+&#x27;/api/usercourse/&#x27;+id.toString()+&#x27;/&#x27;;

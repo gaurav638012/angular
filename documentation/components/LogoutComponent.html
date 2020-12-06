@@ -151,7 +151,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(logout: <a href="../injectables/LogoutService.html">LogoutService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -173,18 +173,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                        <td>logout</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/LogoutService.html" target="_self" >LogoutService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                                 <tr>
                                                         <td>router</td>
                                                   
@@ -264,8 +252,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { LogoutService } from &#x27;../services/logout.service&#x27;;
-import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+//import { LogoutService } from &#x27;../services/logout.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 @Component({
   selector: &#x27;app-logout&#x27;,
   templateUrl: &#x27;./logout.component.html&#x27;,
@@ -274,7 +262,7 @@ import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
 export class LogoutComponent implements OnInit {
 
   constructor(
-    private logout: LogoutService,
+    //private logout: LogoutService,
     private router:Router,
   ) { }
 /**
