@@ -18,8 +18,8 @@ export class AddCourseService {
     private http:HttpClient,
   ) { }
   /**
-   * @param data this represents the course object to be added.This service is called by add course component from which the course oject was passed
-   * So the add course function adds the course by sending a post request to the backend
+   * This function sends a post request to ADD_COURSE_URL sending the course object with httpOptions
+   * @param data this represents the course object to be added.
    * @return Post Request
    */
   addCourse(data:Course): Observable<Course>{

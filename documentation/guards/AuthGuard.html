@@ -104,12 +104,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/app/services/authentication.service.ts:121</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/app/services/authentication.service.ts:169</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Authgaurd to block unauthenticated page access</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -193,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/app/services/authentication.service.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">src/app/services/authentication.service.ts:179</a></div>
                 </td>
             </tr>
 
@@ -227,25 +229,25 @@ If not logged in it logs out and redirects to login page</p>
 import {HttpClient, HttpHeaders} from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import {Login} from &#x27;../_models/login&#x27;;
-import {UserMy} from &#x27;../_models/user-my&#x27;;
-import {UserToken} from &#x27;../_models/user-token&#x27;;
-import * as uuid from &#x27;uuid&#x27;;
+//import {UserMy} from &#x27;../_models/user-my&#x27;;
+//import {UserToken} from &#x27;../_models/user-token&#x27;;
+//import * as uuid from &#x27;uuid&#x27;;
 import {BASE_URL} from &#x27;./base&#x27;;
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from &#x27;@angular/common/http&#x27;;
 import { CanActivate, Router } from &#x27;@angular/router&#x27;;
 import { tap, shareReplay } from &#x27;rxjs/operators&#x27;;
 import { LogoutService } from &#x27;./logout.service&#x27;;
 
-import * as jwtDecode from &#x27;jwt-decode&#x27;;
+//import * as jwtDecode from &#x27;jwt-decode&#x27;;
 import * as moment from &#x27;moment&#x27;;
 const LOGIN_URL &#x3D; BASE_URL+&#x27;/api/auth/get-token/&#x27;;
 const REFRESH_URL &#x3D; BASE_URL+&#x27;/api/auth/refresh-token/&#x27;;
 
-const httpOptions &#x3D; {
+/*const httpOptions &#x3D; {
   headers: new HttpHeaders({
     &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
   })
-};
+};*/
 interface JWTPayload {
   user_id: number;
   username: string;
@@ -256,68 +258,107 @@ interface JWTPayload {
   providedIn: &#x27;root&#x27;
 })
 export class AuthenticationService {
-  currentUserValue;
+  /**
+   * storing current user value i.e, username if necessary
+   */
+  currentUserValue; 
   constructor(
     private http: HttpClient,
   ) { }
   private setSession(authResult) {
     console.log(&quot;start&quot;);
-    const token &#x3D; authResult.token;
+    const token &#x3D; authResult.token; 
     console.log(&quot;token got&quot;);
-    const payload &#x3D; this.decode(token);
+    /**
+     * using function decode to get payload of JWT token
+     * 
+     */
+    const payload &#x3D; this.decode(token); 
     console.log(&quot;payload got&quot;);
-    const expiresAt &#x3D; moment.unix(payload.exp);
+    /**
+     * converting expiry time from unix timestamp to date time
+     */
+    const expiresAt &#x3D; moment.unix(payload.exp); 
     console.log(&quot;expiry got&quot;);
-    console.log(authResult.token);
+    console.log(authResult.token); 
+    /**
+     * storing token and expiry details
+     */
     localStorage.setItem(&#x27;token&#x27;, authResult.token);
     localStorage.setItem(&#x27;expires_at&#x27;, JSON.stringify(expiresAt.valueOf()));
   }
-
+  /**
+   * @return extracting token
+   */
   get token(): string {
     return localStorage.getItem(&#x27;token&#x27;);
   }
-
+  
+  /**
+   * @param token JWT TOKEN
+   */
   private decode(token: string) {
     try {
-        return JSON.parse(atob(token.split(&quot;.&quot;)[1]));
+        /**
+         * breaking JWT into 3 components and parsing
+         */
+        return JSON.parse(atob(token.split(&quot;.&quot;)[1])); 
     } catch (e) {
         console.log(&quot;error decoding token&quot;);
     }
   }
-
+  /**
+   * to call on rendering any page 
+   */
   refreshToken() {
-    if (moment().isBetween(this.getExpiration().subtract(1, &#x27;days&#x27;), this.getExpiration())) {
+    if (moment().isBetween(this.getExpiration().subtract(1, &#x27;days&#x27;), this.getExpiration())) {  
+      /**
+       * sending a refresh request to backend server if loggedIn
+       */
       return this.http.post(REFRESH_URL,{token:this.token})
       .pipe(
-        tap(response &#x3D;&gt; this.setSession(response)),
+        tap(response &#x3D;&gt; this.setSession(response)), 
         shareReplay(),
       ).subscribe();
     }
   }
-
+  /**
+   * @return Returns expiry time of the token
+   */
   getExpiration() {
     const expiration &#x3D; localStorage.getItem(&#x27;expires_at&#x27;);
     const expiresAt &#x3D; JSON.parse(expiration);
 
-    return moment(expiresAt);
+    return moment(expiresAt); 
   }
-
+  /**
+   * sending post to get-token url
+   * @param data Login object
+   * @return Sets data of get-token result via setSession
+   */
   login(data: Login)
   { console.log(&quot;1&quot;);
-    return this.http.post(LOGIN_URL,data)
+    
+    return this.http.post(LOGIN_URL,data)  
     .pipe(
       tap(response &#x3D;&gt; {
         console.log(&quot;init&quot;);
-        this.setSession(response);
+        this.setSession(response); 
       console.log(&quot;login&quot;);}),
       shareReplay(),
     );
   }
-
+  
+  /**
+   * @return Returns if user is logged in
+   */
   isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+    return moment().isBefore(this.getExpiration()); 
   }
-
+  
+  /**
+   * @return Returns if user is logged out
+   */
   isLoggedOut() {
     return !this.isLoggedIn();
   }
@@ -325,14 +366,23 @@ export class AuthenticationService {
 
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-
+export class AuthInterceptor implements HttpInterceptor { 
+  /** 
+   * HttpInterceptor to add authentication requests to outgoing requests
+   * 
+   * @return Returns request with authourization request
+   **/
   intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    /**
+     * token value is stored here
+     */
     const token &#x3D; localStorage.getItem(&#x27;token&#x27;);
-
     if (token) {
+      /**
+       * add authorization header &quot;Authorization:JWT token&quot;
+       */
       const cloned &#x3D; req.clone({
-        headers: req.headers.set(&#x27;Authorization&#x27;, &#x27;JWT &#x27;.concat(token))
+        headers: req.headers.set(&#x27;Authorization&#x27;, &#x27;JWT &#x27;.concat(token)) 
       });
 
       return next.handle(cloned);
@@ -344,7 +394,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
+  /**
+   * Authgaurd to block unauthenticated page access
+  **/
   constructor(private authService: AuthenticationService, private router: Router, private logout:LogoutService) { }
   /**
    * @return this returns a boolean value which tells whether its logged in or not
@@ -353,11 +405,17 @@ export class AuthGuard implements CanActivate {
    */
   canActivate() {
     if (this.authService.isLoggedIn()) {
+      /**
+       * check login status and refresh
+       */
       this.authService.refreshToken();
 
       return true;
     } else {
-      this.logout.logout();
+      /**
+       * for unauthenticated request redirect to login
+       */
+      this.logout.logout(); 
       this.router.navigate([&#x27;login&#x27;]);
 
       return false;

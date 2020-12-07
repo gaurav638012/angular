@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
      */
     submitted = false;
     returnUrl: string;
-
+    
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -62,11 +62,17 @@ export class LoginComponent implements OnInit {
     }
 
     /**
-     * this function performs the logic
-     * if form is invalid stop
-     * check for invalid login and if success then call idService
-     * if the login was successful after matching the data then redirect to the course page
-     * else window alert that login was unsuccessful
+     * This function performs the logic
+     * 
+     * If form is invalid stop
+     * 
+     * Check for invalid login and if success then call idService
+     * 
+     * If the login was successful after matching the data then redirect to the course page
+     * 
+     * Also before moving onto the home page the function also sets the is_professor variable in the local storage which will be used
+     * 
+     * Else window alert that login was unsuccessful
      */
     onSubmit() {
         this.submitted = true;

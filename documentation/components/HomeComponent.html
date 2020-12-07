@@ -176,7 +176,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/home/home.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/home/home.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -269,14 +269,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/home/home.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/home/home.component.ts:47</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This allows the professor to add a new course</p>
+<p>This function leads to a different component add course</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -308,14 +311,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/home/home.component.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/home/home.component.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Calls who service to get the set of courses of a person</p>
+<p>Also it updates the is_professor variable </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -345,10 +351,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/home/home.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/home/home.component.ts:14</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Contains the set of courses the user is associated with</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -366,10 +378,17 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/home/home.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/home/home.component.ts:20</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Stores if the user is a professor or not</p>
+<p>The main constraint is that a professor cannot be a student in another course</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -382,21 +401,33 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import {UserwhoService} from &#x27;../services/userwho.service&#x27;;
 import {AuthenticationService} from &#x27;../services/authentication.service&#x27;;
-import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 @Component({
   selector: &#x27;app-home&#x27;,
   templateUrl: &#x27;./home.component.html&#x27;,
   styleUrls: [&#x27;./home.component.scss&#x27;]
 })
 export class HomeComponent implements OnInit {
+  /**
+   * Contains the set of courses the user is associated with
+   */
   courses;
+  /**
+   * Stores if the user is a professor or not
+   * 
+   * The main constraint is that a professor cannot be a student in another course
+   */
   is_professor;
   constructor(
     private who: UserwhoService,
     private router: Router,
     private authenticationService : AuthenticationService,
   ) { }
-
+  /**
+   * Calls who service to get the set of courses of a person
+   * 
+   * Also it updates the is_professor variable 
+   */
   ngOnInit(): void {
     this.who.WHO().subscribe(data &#x3D;&gt; {console.log(data);
                                       this.courses &#x3D; data;
@@ -408,6 +439,11 @@ export class HomeComponent implements OnInit {
       this.is_professor&#x3D;false;
     }
   }
+  /**
+   * This allows the professor to add a new course
+   * 
+   * This function leads to a different component add course
+   */
   AddCourse(){
     console.log(&#x27;clicked&#x27;);
     this.router.navigate([&#x27;addcourse&#x27;]);
@@ -433,6 +469,7 @@ export class HomeComponent implements OnInit {
             &lt;div class&#x3D;&quot;card-body&quot;&gt;
                 &lt;h3 class&#x3D;&quot;card-title&quot;&gt;{{course.code}}&lt;/h3&gt;
                 &lt;h4&gt;&lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+course.id}}&quot; style&#x3D;&quot;color:white;&quot;&gt; {{course.name}}&lt;/a&gt;&lt;/h4&gt;
+                &lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+course.id+&#x27;/&#x27;+&#x27;list&#x27;}}&quot;&gt;&lt;button&gt;List of Users&lt;/button&gt;&lt;/a&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -511,8 +548,8 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><div class="add_course_button">    <div *ngIf="is_professor">        <button class="btn btn-primary addCourse" (click)="AddCourse()">Add Course</button>    </div></div><div class="flex-container">    <div class="tot" *ngFor="let course of courses;index as i">        <div class="card bg-info shadow-lg">            <img class="card-img-top" src="assets/img1.jpg" alt="Card image">            <div class="card-body">                <h3 class="card-title">{{course.code}}</h3>                <h4><a routerLink="{{\'/course/\'+course.id}}" style="color:white;"> {{course.name}}</a></h4>            </div>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'}];
+        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><div class="add_course_button">    <div *ngIf="is_professor">        <button class="btn btn-primary addCourse" (click)="AddCourse()">Add Course</button>    </div></div><div class="flex-container">    <div class="tot" *ngFor="let course of courses;index as i">        <div class="card bg-info shadow-lg">            <img class="card-img-top" src="assets/img1.jpg" alt="Card image">            <div class="card-body">                <h3 class="card-title">{{course.code}}</h3>                <h4><a routerLink="{{\'/course/\'+course.id}}" style="color:white;"> {{course.name}}</a></h4>                <a routerLink="{{\'/course/\'+course.id+\'/\'+\'list\'}}"><button>List of Users</button></a>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ReadComponent', 'selector': 'app-read'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>

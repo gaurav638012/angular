@@ -43,14 +43,14 @@ $screen-xl-min: 1200px;
         margin-left: 25%;
         margin-right: 25%;
     }
-    // border: 1px solid black;
+    ;
 }
 
 .content {
     margin-left: 5%;
     margin-top: 8%;
     border-radius: 5px;
-    // border: 1px solid black;
+   
     @include md {
         margin-left: 0%;
         text-align: center;

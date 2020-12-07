@@ -6,9 +6,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { first } from 'rxjs/operators';
 import {AddToCourseService} from '../services/add-to-course.service';
 import {MessageService} from '../services/message.service';
-import {MatExpansionModule} from '@angular/material/expansion';
-import { Observable } from 'rxjs';
-import {Message} from '../_models/message';
+//import {MatExpansionModule} from '@angular/material/expansion';
+//import { Observable } from 'rxjs';
+//import {Message} from '../_models/message';
 @Component({
   selector: 'app-course-home',
   templateUrl: './course-home.component.html',
@@ -20,6 +20,7 @@ export class CourseHomeComponent implements OnInit {
    */
   course_id;
   course_status;
+  course_name;
   /**
    * to store if add person option is chosen
    */
@@ -59,15 +60,21 @@ export class CourseHomeComponent implements OnInit {
     private router:Router,
   ) { }
   /**
+   * First course_id variable is extracted from the path using activatedRoute
    * 
+   * Then who service is called which updates the course_status variable
+   * 
+   * Then messageService is called which makes a get request to fetch all the messages sent in the course
    */
   ngOnInit(): void {
     this.course_id=this.activatedRoute.snapshot.paramMap.get('id');
+    this.course_name=this.activatedRoute.snapshot.paramMap.get('name');
     this.who.STATUS(this.course_id)
     .pipe(first())
     .subscribe(data=>{
       console.log(data);
       this.course_status=data['status'];
+      
     });
     this.username=new FormControl('',Validators.required);
     this.message=this.formBuilder.group({
@@ -76,24 +83,42 @@ export class CourseHomeComponent implements OnInit {
   });
     this.messageService.GET_MESSAGES(this.course_id).subscribe(data1=>this.messages=data1);
   }
+  /**
+   * to provide form controls to the html part
+   */
   get f()
   {
     return this.message.controls;
   }
+  /**
+   * This function adds a student which can be done by TA/Prof
+   * 
+   * If username is invalid it stops
+   * 
+   * Else it calls the addToCourse to add the student
+   * 
+   * If the process is successful it window alerts the process is successful else it alerts process failed
+   */
   AddStudent(){
     this.submitted_add=true;
     if(this.username.invalid){
+      window.alert("Invalid Username");
       return ;
     }
     this.a_s_l=true;
     this.addtocourse.AddToCourse(this.username.value,this.course_id,'student').pipe(first())
     .subscribe(
-      data=>{console.log(data);window.alert("Student is added successfully");location.reload();},
-      error=>{window.alert("adding student is unsuccessful");}
+      data=>{window.alert("Student is added successfully");location.reload();},
+      error=>{window.alert("Adding student is unsuccessful");}
     )
     this.a_s_l=false;
     this.submitted_add=false;
   }
+  /**
+   * This function adds a student which can be done only by the professor
+   * 
+   * Rest is similar to AddStudent()
+   */
   AddTA(){
     this.submitted_add=true;
     if(this.username.invalid){
@@ -109,6 +134,15 @@ export class CourseHomeComponent implements OnInit {
     this.a_t_l=false;
     this.submitted_add=false;
   }
+  /**
+   * This function is used to send message to TA which is allowed only for the professor
+   * 
+   * If the message is invalid it stops
+   * 
+   * Else it calls the send message service with last argument as TA to send the message
+   * 
+   * If the message is sent the page is reloaded and the message sent will be seen
+   */
   SendTA(){
     this.submitted_m=true;
     if(this.message.invalid){
@@ -124,6 +158,11 @@ export class CourseHomeComponent implements OnInit {
     this.m_t_l=false;
     this.submitted_m=false;
   }
+  /**
+   * This function is used to send message to students which is allowed for both the  professor and TA's
+   * 
+   * Rest is similar as SendTA()
+   */
   SendStudent(){
     this.submitted_m=true;
     if(this.message.invalid){

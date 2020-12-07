@@ -151,7 +151,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(logout: <a href="../injectables/LogoutService.html">LogoutService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -173,18 +173,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                        <td>logout</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/LogoutService.html" target="_self" >LogoutService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                                 <tr>
                                                         <td>router</td>
                                                   
@@ -237,14 +225,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/logout/logout.component.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/logout/logout.component.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This functions clears the local storage and moves out</p>
+<p>Then it takes to the login page</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -261,8 +252,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { LogoutService } from &#x27;../services/logout.service&#x27;;
-import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+//import { LogoutService } from &#x27;../services/logout.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 @Component({
   selector: &#x27;app-logout&#x27;,
   templateUrl: &#x27;./logout.component.html&#x27;,
@@ -271,10 +262,14 @@ import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
 export class LogoutComponent implements OnInit {
 
   constructor(
-    private logout: LogoutService,
+    //private logout: LogoutService,
     private router:Router,
   ) { }
-
+/**
+ * This functions clears the local storage and moves out
+ * 
+ * Then it takes to the login page
+ */
   ngOnInit(): void {
     //this.logout.logout()
     window.localStorage.clear();
@@ -324,7 +319,7 @@ export class LogoutComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><p>logout works!</p></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'}];
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ReadComponent', 'selector': 'app-read'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LogoutComponent'};
 </script>

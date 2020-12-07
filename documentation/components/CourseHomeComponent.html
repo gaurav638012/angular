@@ -197,6 +197,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#f">f</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -207,7 +221,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, who: <a href="../injectables/UserwhoService.html">UserwhoService</a>, addtocourse: <a href="../injectables/AddToCourseService.html">AddToCourseService</a>, messageService: <a href="../injectables/MessageService.html">MessageService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, who: <a href="../injectables/UserwhoService.html">UserwhoService</a>, addtocourse: <a href="../injectables/AddToCourseService.html">AddToCourseService</a>, messageService: <a href="../injectables/MessageService.html">MessageService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -229,6 +243,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>activatedRoute</td>
                                                   
@@ -329,14 +355,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">src/app/course-home/course-home.component.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/course-home/course-home.component.ts:99</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function adds a student which can be done by TA/Prof</p>
+<p>If username is invalid it stops</p>
+<p>Else it calls the addToCourse to add the student</p>
+<p>If the process is successful it window alerts the process is successful else it alerts process failed</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -368,14 +399,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">src/app/course-home/course-home.component.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/course-home/course-home.component.ts:119</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function adds a student which can be done only by the professor</p>
+<p>Rest is similar to AddStudent()</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -407,14 +441,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/app/course-home/course-home.component.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/course-home/course-home.component.ts:68</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>First course_id variable is extracted from the path using activatedRoute</p>
+<p>Then who service is called which updates the course_status variable</p>
+<p>Then messageService is called which makes a get request to fetch all the messages sent in the course</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -446,14 +484,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/app/course-home/course-home.component.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">src/app/course-home/course-home.component.ts:163</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is used to send message to students which is allowed for both the  professor and TA&#39;s</p>
+<p>Rest is similar as SendTA()</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -485,14 +526,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">src/app/course-home/course-home.component.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/app/course-home/course-home.component.ts:143</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is used to send message to TA which is allowed only for the professor</p>
+<p>If the message is invalid it stops</p>
+<p>Else it calls the send message service with last argument as TA to send the message</p>
+<p>If the message is sent the page is reloaded and the message sent will be seen</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -698,7 +744,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
 
                         </td>
                     </tr>
@@ -831,6 +877,40 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="f"></a>
+                        <span class="name"><b>f</b><a href="#f"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>f()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/course-home/course-home.component.ts:86</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>to provide form controls to the html part</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
 </div>
 
 
@@ -843,9 +923,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from &#x27;@angular/f
 import { first } from &#x27;rxjs/operators&#x27;;
 import {AddToCourseService} from &#x27;../services/add-to-course.service&#x27;;
 import {MessageService} from &#x27;../services/message.service&#x27;;
-import {MatExpansionModule} from &#x27;@angular/material/expansion&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import {Message} from &#x27;../_models/message&#x27;;
+//import {MatExpansionModule} from &#x27;@angular/material/expansion&#x27;;
+//import { Observable } from &#x27;rxjs&#x27;;
+//import {Message} from &#x27;../_models/message&#x27;;
 @Component({
   selector: &#x27;app-course-home&#x27;,
   templateUrl: &#x27;./course-home.component.html&#x27;,
@@ -866,7 +946,7 @@ export class CourseHomeComponent implements OnInit {
    */
   submitted_m&#x3D;false;
   username:FormControl;
-  message:FormControl;
+  message:FormGroup;
   /**
    * add student loading to check if the process is loading
    */
@@ -888,6 +968,7 @@ export class CourseHomeComponent implements OnInit {
    */
   messages
   constructor(
+    private formBuilder: FormBuilder,
     private activatedRoute:ActivatedRoute,
     private who:UserwhoService,
     private addtocourse:AddToCourseService,
@@ -895,7 +976,11 @@ export class CourseHomeComponent implements OnInit {
     private router:Router,
   ) { }
   /**
+   * First course_id variable is extracted from the path using activatedRoute
    * 
+   * Then who service is called which updates the course_status variable
+   * 
+   * Then messageService is called which makes a get request to fetch all the messages sent in the course
    */
   ngOnInit(): void {
     this.course_id&#x3D;this.activatedRoute.snapshot.paramMap.get(&#x27;id&#x27;);
@@ -906,23 +991,48 @@ export class CourseHomeComponent implements OnInit {
       this.course_status&#x3D;data[&#x27;status&#x27;];
     });
     this.username&#x3D;new FormControl(&#x27;&#x27;,Validators.required);
-    this.message&#x3D;new FormControl(&#x27;&#x27;,Validators.required);
+    this.message&#x3D;this.formBuilder.group({
+      message_text: [&#x27;&#x27;, Validators.required],
+      message_priority: [false, Validators.required]
+  });
     this.messageService.GET_MESSAGES(this.course_id).subscribe(data1&#x3D;&gt;this.messages&#x3D;data1);
   }
+  /**
+   * to provide form controls to the html part
+   */
+  get f()
+  {
+    return this.message.controls;
+  }
+  /**
+   * This function adds a student which can be done by TA/Prof
+   * 
+   * If username is invalid it stops
+   * 
+   * Else it calls the addToCourse to add the student
+   * 
+   * If the process is successful it window alerts the process is successful else it alerts process failed
+   */
   AddStudent(){
     this.submitted_add&#x3D;true;
     if(this.username.invalid){
+      window.alert(&quot;Invalid Username&quot;);
       return ;
     }
     this.a_s_l&#x3D;true;
     this.addtocourse.AddToCourse(this.username.value,this.course_id,&#x27;student&#x27;).pipe(first())
     .subscribe(
-      data&#x3D;&gt;{console.log(data);window.alert(&quot;Student is added successfully&quot;);location.reload();},
-      error&#x3D;&gt;{window.alert(&quot;adding student is unsuccessful&quot;);}
+      data&#x3D;&gt;{window.alert(&quot;Student is added successfully&quot;);location.reload();},
+      error&#x3D;&gt;{window.alert(&quot;Adding student is unsuccessful&quot;);}
     )
     this.a_s_l&#x3D;false;
     this.submitted_add&#x3D;false;
   }
+  /**
+   * This function adds a student which can be done only by the professor
+   * 
+   * Rest is similar to AddStudent()
+   */
   AddTA(){
     this.submitted_add&#x3D;true;
     if(this.username.invalid){
@@ -938,6 +1048,15 @@ export class CourseHomeComponent implements OnInit {
     this.a_t_l&#x3D;false;
     this.submitted_add&#x3D;false;
   }
+  /**
+   * This function is used to send message to TA which is allowed only for the professor
+   * 
+   * If the message is invalid it stops
+   * 
+   * Else it calls the send message service with last argument as TA to send the message
+   * 
+   * If the message is sent the page is reloaded and the message sent will be seen
+   */
   SendTA(){
     this.submitted_m&#x3D;true;
     if(this.message.invalid){
@@ -953,6 +1072,11 @@ export class CourseHomeComponent implements OnInit {
     this.m_t_l&#x3D;false;
     this.submitted_m&#x3D;false;
   }
+  /**
+   * This function is used to send message to students which is allowed for both the  professor and TA&#x27;s
+   * 
+   * Rest is similar as SendTA()
+   */
   SendStudent(){
     this.submitted_m&#x3D;true;
     if(this.message.invalid){
@@ -1002,30 +1126,123 @@ export class CourseHomeComponent implements OnInit {
     &lt;/mat-expansion-panel-header&gt;
     &lt;div class &#x3D; &quot;form-group&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;course_status&#x3D;&#x3D;&#x27;professor&#x27;||course_status&#x3D;&#x3D;&#x27;TA&#x27;&quot;&gt;
-            &lt;label class&#x3D;&quot;message&quot; style&#x3D;&quot;font-size:25px; margin-bottom: 20px;&quot;&gt;Message:&lt;/label&gt;
-            &lt;input type&#x3D;&quot;text&quot; [formControl]&#x3D;&quot;message&quot; class &#x3D; &quot;form-control&quot;  [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted_m &amp;&amp; message.errors }&quot;&gt;
-            &lt;div *ngIf&#x3D;&quot;submitted_m &amp;&amp; message.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-                &lt;div *ngIf&#x3D;&quot;message.errors.required&quot;&gt;Message cannot be empty&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;span style&#x3D;&quot;margin-right: 20px;&quot;&gt;
-                &lt;button [disabled]&#x3D;&quot;m_t_l&quot; *ngIf&#x3D;&quot;course_status&#x3D;&#x3D;&#x27;professor&#x27;&quot; class&#x3D;&quot;submit btn btn-primary btn-xl&quot; (click)&#x3D;&quot;SendTA()&quot;&gt;Send to TA&lt;/button&gt;
-            &lt;/span&gt;
-            &lt;span&gt;
-                &lt;button [disabled]&#x3D;&quot;m_s_l&quot; *ngIf&#x3D;&quot;course_status&#x3D;&#x3D;&#x27;TA&#x27;||course_status&#x3D;&#x3D;&#x27;professor&#x27;&quot; class&#x3D;&quot;submit btn btn-dark btn-xl&quot; (click)&#x3D;&quot;SendStudent()&quot;&gt;Send to Students&lt;/button&gt;  
-            &lt;/span&gt;
+            &lt;form [formGroup]&#x3D;&quot;message&quot;&gt;
+                &lt;label class&#x3D;&quot;message&quot; style&#x3D;&quot;font-size:25px; margin-bottom: 20px;&quot;&gt;Message:&lt;/label&gt;
+                &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;message_text&quot; class &#x3D; &quot;form-control&quot;  [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted_m &amp;&amp; f.message_text.errors }&quot;&gt;
+                &lt;!--&lt;label&gt;
+                    High Priority
+                    &lt;input type&#x3D;&quot;radio&quot; formControlName&#x3D;&quot;message_priority&quot; id&#x3D;&quot;low&quot; class&#x3D;&quot;form-control&quot; value&#x3D;&quot;false&quot;&gt;
+                &lt;/label&gt;
+                &lt;label&gt;
+                    Low Priority
+                    &lt;input type&#x3D;&quot;radio&quot; formControlName&#x3D;&quot;message_priority&quot; id&#x3D;&quot;low&quot; class&#x3D;&quot;form-control&quot; value&#x3D;&quot;false&quot;&gt;
+                &lt;/label&gt;--&gt;
+                &lt;input type&#x3D;&quot;radio&quot; formControlName&#x3D;&quot;message_priority&quot; id&#x3D;&quot;low&quot; class&#x3D;&quot;priority&quot; value&#x3D;&quot;false&quot; checked&gt;
+                &lt;label for&#x3D;&quot;low&quot;&gt;Lower Priority&lt;/label&gt;&lt;br&gt;
+                &lt;input type&#x3D;&quot;radio&quot; formControlName&#x3D;&quot;message_priority&quot; id&#x3D;&quot;high&quot; class&#x3D;&quot;priority&quot; value&#x3D;&quot;true&quot;&gt;
+                &lt;label for&#x3D;&quot;low&quot;&gt;High Priority&lt;/label&gt;&lt;br&gt;
+                &lt;div *ngIf&#x3D;&quot;submitted_m &amp;&amp; f.message_text.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+                    &lt;div *ngIf&#x3D;&quot;f.message_text.errors.required&quot;&gt;Message cannot be empty&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;span style&#x3D;&quot;margin-right: 20px;&quot;&gt;
+                    &lt;button [disabled]&#x3D;&quot;m_t_l&quot; *ngIf&#x3D;&quot;course_status&#x3D;&#x3D;&#x27;professor&#x27;&quot; class&#x3D;&quot;submit btn btn-primary btn-xl&quot; (click)&#x3D;&quot;SendTA()&quot;&gt;Send to TA&lt;/button&gt;
+                &lt;/span&gt;
+                &lt;span&gt;
+                    &lt;button [disabled]&#x3D;&quot;m_s_l&quot; *ngIf&#x3D;&quot;course_status&#x3D;&#x3D;&#x27;TA&#x27;||course_status&#x3D;&#x3D;&#x27;professor&#x27;&quot; class&#x3D;&quot;submit btn btn-dark btn-xl&quot; (click)&#x3D;&quot;SendStudent()&quot;&gt;Send to Students&lt;/button&gt;  
+                &lt;/span&gt;
+            &lt;/form&gt;
         &lt;/div&gt;
       &lt;/div&gt;
 &lt;/mat-expansion-panel&gt; 
 
 &lt;div class &#x3D; &quot;container&quot;&gt;
     &lt;h2 class &#x3D; &quot;message-title&quot;&gt;Previous Messages&lt;/h2&gt;
-    &lt;div *ngFor&#x3D;&quot;let message of messages&quot; class &#x3D; &quot;col-lg-12 col-md-12&quot;&gt;
-        &lt;ul&gt;
-            &lt;div&gt;
-                &lt;li *ngIf&#x3D;&quot;message.message.length&quot;&gt;{{message.message}}&lt;/li&gt; &lt;!--to make sure no empty messages are shown--&gt;
+    &lt;div *ngFor&#x3D;&quot;let message of messages&quot; class &#x3D; &quot;col-lg-12 col-md-12&quot;&gt;     
+        &lt;div *ngIf&#x3D;&quot;message.prior&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;message.from_username&#x3D;&#x3D;&#x3D;&#x27;professor&#x27;&quot;&gt;
+                &lt;div class&#x3D;&quot;card bg-light text-red prof&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                        &lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+message.id+&#x27;/&#x27;+&#x27;read&#x27;}}&quot;&gt;&lt;p&gt;{{message.from_username}}&lt;/p&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                        &lt;p style&#x3D;&quot;color: red;&quot;&gt;{{message.message}}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
-        &lt;/ul&gt;
+            &lt;div *ngIf&#x3D;&quot;!(message.from_username&#x3D;&#x3D;&#x3D;&#x27;professor&#x27;)&quot;&gt;
+                &lt;div class&#x3D;&quot;card bg-light text-red TA&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                        &lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+message.id+&#x27;/&#x27;+&#x27;read&#x27;}}&quot;&gt;&lt;p&gt;{{message.from_username}}&lt;/p&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                        &lt;p style&#x3D;&quot;color: red;&quot;&gt;{{message.message}}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;   
+        &lt;div *ngIf&#x3D;&quot;!message.prior&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;message.from_username&#x3D;&#x3D;&#x3D;&#x27;professor&#x27;&quot;&gt;
+                &lt;div class&#x3D;&quot;card bg-light text-red prof&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                        &lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+message.id+&#x27;/&#x27;+&#x27;read&#x27;}}&quot;&gt;&lt;p&gt;{{message.from_username}}&lt;/p&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                        &lt;p style&#x3D;&quot;color:green;&quot;&gt;{{message.message}}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;!(message.from_username&#x3D;&#x3D;&#x3D;&#x27;professor&#x27;)&quot;&gt;
+                &lt;div class&#x3D;&quot;card bg-light TA&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                        &lt;a routerLink&#x3D;&quot;{{&#x27;/course/&#x27;+message.id+&#x27;/&#x27;+&#x27;read&#x27;}}&quot;&gt;&lt;p&gt;{{message.from_username}}&lt;/p&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                        &lt;p style&#x3D;&quot;color:green;&quot;&gt;{{message.message}}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;    
     &lt;/div&gt;
+
+   &lt;!-- &lt;h3 class &#x3D; &quot;message-title&quot;&gt;Low Priority Messages:&lt;/h3&gt;
+    &lt;div *ngFor&#x3D;&quot;let message of messages&quot; class &#x3D; &quot;col-lg-12 col-md-12&quot;&gt;     
+        &lt;div *ngIf&#x3D;&quot;!message.prior&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;message.from_username&#x3D;&#x3D;&#x3D;&#x27;professor&#x27;&quot;&gt;
+                &lt;div class&#x3D;&quot;card bg-light text-red prof&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                        &lt;p class&#x3D;&quot;title-style&quot;&gt;{{message.from_username}}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                        &lt;p style&#x3D;&quot;color:green;&quot;&gt;{{message.message}}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;message.from_username&#x3D;&#x3D;&#x3D;&#x27;TA&#x27;&quot;&gt;
+                &lt;div class&#x3D;&quot;card bg-light text-red TA&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                        &lt;p class&#x3D;&quot;title-style&quot;&gt;{{message.from_username}}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                        &lt;p style&#x3D;&quot;color:green;&quot;&gt;{{message.message}}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;       
+    &lt;/div&gt;
+    
+    &lt;h3 class &#x3D; &quot;message-title&quot;&gt;Low Priority Messages:&lt;/h3&gt;
+    &lt;div *ngFor&#x3D;&quot;let message of messages&quot; class &#x3D; &quot;col-lg-12 col-md-12&quot;&gt;     
+        &lt;div *ngIf&#x3D;&quot;!message.prior&quot;&gt;
+            &lt;div class&#x3D;&quot;card bg-light text-green&quot;&gt;
+                &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                    &lt;p&gt;{{message.from_username}}&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;class-body&quot;&gt;
+                    &lt;p style&#x3D;&quot;color:green;&quot;&gt;{{message.message}}&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;       
+    &lt;/div&gt;--&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -1080,6 +1297,27 @@ export class CourseHomeComponent implements OnInit {
 
 .container {
     margin-top: 5%;
+}
+
+.priority{
+    font-size: 20px;
+}
+
+.card{
+    
+    margin-bottom: 2%;
+}
+
+.prof{
+    margin-right: 40%;
+}
+
+.TA{
+    margin-left: 70%;
+}
+
+.card-header{
+    color: blue;
 }</code></pre>
     </div>
 
@@ -1108,8 +1346,8 @@ export class CourseHomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-expansion-panel class = "add">        <mat-expansion-panel-header class = "right-aligned-header">         <mat-panel-title></mat-panel-title>        <mat-panel-description style="text-align: center">            Add a student / TA        </mat-panel-description>    </mat-expansion-panel-header>    <div class = "form-group">        <div *ngIf="course_status==\'professor\'||course_status==\'TA\'">              <label class="username" style="font-size:25px; margin-bottom: 20px;">Username:</label>              <input type="text" [formControl]="username" class = "form-control" [ngClass]="{ \'is-invalid\': submitted_add && username.errors }">              <div *ngIf="submitted_add && username.errors" class="invalid-feedback">                <div *ngIf="username.errors.required">Username is required</div>              </div>              <span style="margin-right: 20px;"><button [disabled] = "a_t_l"*ngIf="course_status==\'professor\'" class="submit btn btn-primary btn-xl" (click)="AddTA()">Add TA</button></span>              <span><button [disabled] = "a_s_l" *ngIf="course_status==\'TA\'||course_status==\'professor\'" class="submit btn btn-dark btn-xl" (click)="AddStudent()">Add Student</button></span>            </div>      </div></mat-expansion-panel> <mat-expansion-panel class = "send">        <mat-expansion-panel-header>         <!-- <mat-panel-title></mat-panel-title> -->        <mat-panel-description  style="text-align:center;">            Send a Message!        </mat-panel-description>    </mat-expansion-panel-header>    <div class = "form-group">        <div *ngIf="course_status==\'professor\'||course_status==\'TA\'">            <label class="message" style="font-size:25px; margin-bottom: 20px;">Message:</label>            <input type="text" [formControl]="message" class = "form-control"  [ngClass]="{ \'is-invalid\': submitted_m && message.errors }">            <div *ngIf="submitted_m && message.errors" class="invalid-feedback">                <div *ngIf="message.errors.required">Message cannot be empty</div>            </div>            <span style="margin-right: 20px;">                <button [disabled]="m_t_l" *ngIf="course_status==\'professor\'" class="submit btn btn-primary btn-xl" (click)="SendTA()">Send to TA</button>            </span>            <span>                <button [disabled]="m_s_l" *ngIf="course_status==\'TA\'||course_status==\'professor\'" class="submit btn btn-dark btn-xl" (click)="SendStudent()">Send to Students</button>              </span>        </div>      </div></mat-expansion-panel> <div class = "container">    <h2 class = "message-title">Previous Messages</h2>    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">        <ul>            <div>                <li *ngIf="message.message.length">{{message.message}}</li> <!--to make sure no empty messages are shown-->            </div>        </ul>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'}];
+        var COMPONENT_TEMPLATE = '<div><mat-expansion-panel class = "add">        <mat-expansion-panel-header class = "right-aligned-header">         <mat-panel-title></mat-panel-title>        <mat-panel-description style="text-align: center">            Add a student / TA        </mat-panel-description>    </mat-expansion-panel-header>    <div class = "form-group">        <div *ngIf="course_status==\'professor\'||course_status==\'TA\'">              <label class="username" style="font-size:25px; margin-bottom: 20px;">Username:</label>              <input type="text" [formControl]="username" class = "form-control" [ngClass]="{ \'is-invalid\': submitted_add && username.errors }">              <div *ngIf="submitted_add && username.errors" class="invalid-feedback">                <div *ngIf="username.errors.required">Username is required</div>              </div>              <span style="margin-right: 20px;"><button [disabled] = "a_t_l"*ngIf="course_status==\'professor\'" class="submit btn btn-primary btn-xl" (click)="AddTA()">Add TA</button></span>              <span><button [disabled] = "a_s_l" *ngIf="course_status==\'TA\'||course_status==\'professor\'" class="submit btn btn-dark btn-xl" (click)="AddStudent()">Add Student</button></span>            </div>      </div></mat-expansion-panel> <mat-expansion-panel class = "send">        <mat-expansion-panel-header>         <!-- <mat-panel-title></mat-panel-title> -->        <mat-panel-description  style="text-align:center;">            Send a Message!        </mat-panel-description>    </mat-expansion-panel-header>    <div class = "form-group">        <div *ngIf="course_status==\'professor\'||course_status==\'TA\'">            <form [formGroup]="message">                <label class="message" style="font-size:25px; margin-bottom: 20px;">Message:</label>                <input type="text" formControlName="message_text" class = "form-control"  [ngClass]="{ \'is-invalid\': submitted_m && f.message_text.errors }">                <!--<label>                    High Priority                    <input type="radio" formControlName="message_priority" id="low" class="form-control" value="false">                </label>                <label>                    Low Priority                    <input type="radio" formControlName="message_priority" id="low" class="form-control" value="false">                </label>-->                <input type="radio" formControlName="message_priority" id="low" class="priority" value="false" checked>                <label for="low">Lower Priority</label><br>                <input type="radio" formControlName="message_priority" id="high" class="priority" value="true">                <label for="low">High Priority</label><br>                <div *ngIf="submitted_m && f.message_text.errors" class="invalid-feedback">                    <div *ngIf="f.message_text.errors.required">Message cannot be empty</div>                </div>                <span style="margin-right: 20px;">                    <button [disabled]="m_t_l" *ngIf="course_status==\'professor\'" class="submit btn btn-primary btn-xl" (click)="SendTA()">Send to TA</button>                </span>                <span>                    <button [disabled]="m_s_l" *ngIf="course_status==\'TA\'||course_status==\'professor\'" class="submit btn btn-dark btn-xl" (click)="SendStudent()">Send to Students</button>                  </span>            </form>        </div>      </div></mat-expansion-panel> <div class = "container">    <h2 class = "message-title">Previous Messages</h2>    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">             <div *ngIf="message.prior">            <div *ngIf="message.from_username===\'professor\'">                <div class="card bg-light text-red prof">                    <div class="card-header">                        <a routerLink="{{\'/course/\'+message.id+\'/\'+\'read\'}}"><p>{{message.from_username}}</p></a>                    </div>                    <div class="class-body">                        <p style="color: red;">{{message.message}}</p>                    </div>                </div>            </div>            <div *ngIf="!(message.from_username===\'professor\')">                <div class="card bg-light text-red TA">                    <div class="card-header">                        <a routerLink="{{\'/course/\'+message.id+\'/\'+\'read\'}}"><p>{{message.from_username}}</p></a>                    </div>                    <div class="class-body">                        <p style="color: red;">{{message.message}}</p>                    </div>                </div>            </div>        </div>           <div *ngIf="!message.prior">            <div *ngIf="message.from_username===\'professor\'">                <div class="card bg-light text-red prof">                    <div class="card-header">                        <a routerLink="{{\'/course/\'+message.id+\'/\'+\'read\'}}"><p>{{message.from_username}}</p></a>                    </div>                    <div class="class-body">                        <p style="color:green;">{{message.message}}</p>                    </div>                </div>            </div>            <div *ngIf="!(message.from_username===\'professor\')">                <div class="card bg-light TA">                    <div class="card-header">                        <a routerLink="{{\'/course/\'+message.id+\'/\'+\'read\'}}"><p>{{message.from_username}}</p></a>                    </div>                    <div class="class-body">                        <p style="color:green;">{{message.message}}</p>                    </div>                </div>            </div>        </div>        </div>   <!-- <h3 class = "message-title">Low Priority Messages:</h3>    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">             <div *ngIf="!message.prior">            <div *ngIf="message.from_username===\'professor\'">                <div class="card bg-light text-red prof">                    <div class="card-header">                        <p class="title-style">{{message.from_username}}</p>                    </div>                    <div class="class-body">                        <p style="color:green;">{{message.message}}</p>                    </div>                </div>            </div>            <div *ngIf="message.from_username===\'TA\'">                <div class="card bg-light text-red TA">                    <div class="card-header">                        <p class="title-style">{{message.from_username}}</p>                    </div>                    <div class="class-body">                        <p style="color:green;">{{message.message}}</p>                    </div>                </div>            </div>        </div>           </div>        <h3 class = "message-title">Low Priority Messages:</h3>    <div *ngFor="let message of messages" class = "col-lg-12 col-md-12">             <div *ngIf="!message.prior">            <div class="card bg-light text-green">                <div class="card-header">                    <p>{{message.from_username}}</p>                </div>                <div class="class-body">                    <p style="color:green;">{{message.message}}</p>                </div>            </div>        </div>           </div>--></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CourseHomeComponent', 'selector': 'app-course-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ReadComponent', 'selector': 'app-read'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TopBarComponent', 'selector': 'app-top-bar'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CourseHomeComponent'};
 </script>

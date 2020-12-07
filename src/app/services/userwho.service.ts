@@ -19,7 +19,7 @@ export class UserwhoService {
     private http: HttpClient,
   ) { }
   /**
-   * 
+   * @return list of courses courresponding to user
    */
   WHO(){
     const USE_URL = BASE_URL+'/api/courses/';
@@ -27,14 +27,15 @@ export class UserwhoService {
   }
   /**
    * 
-   * @param id 
+   * @param id id of course
+   * @return return status of user in course with id as param
    */
   STATUS(id:number){
     const USE_URL=BASE_URL+'/api/user/'+id.toString()+'/abc/';
     return this.http.get(USE_URL,httpOptions);
   }
   /**
-   * 
+   * @return gives UserMy object to find professor status
    */
   IDENTITY(){
     const USE_URL = BASE_URL + '/api/usermy/';

@@ -79,6 +79,9 @@
                                 <a href="#GET_MESSAGES">GET_MESSAGES</a>
                             </li>
                             <li>
+                                <a href="#READ_MESSAGE">READ_MESSAGE</a>
+                            </li>
+                            <li>
                                 <a href="#SEND_MESSAGE">SEND_MESSAGE</a>
                             </li>
                         </ul>
@@ -104,7 +107,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/message.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/message.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -169,14 +172,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/services/message.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/services/message.service.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Sends a get request to URL to get the messages</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -186,6 +191,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -200,6 +206,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Represents the course id for which the messages are to be obtained</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -211,7 +221,86 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Array Object of Messages</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="READ_MESSAGE"></a>
+                    <span class="name">
+                        <b>
+                            READ_MESSAGE
+                        </b>
+                        <a href="#READ_MESSAGE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>READ_MESSAGE(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/services/message.service.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This service sends a GET request to URL to get the list of users who read a particular message</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Message Id</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Array of User Objects who read the message</p>
+
                     </div>
                 </td>
             </tr>
@@ -232,21 +321,23 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>SEND_MESSAGE(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, to: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>SEND_MESSAGE(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, message: <a href="../interfaces/MessageSent.html">MessageSent</a>, to: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/services/message.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/services/message.service.ts:39</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Send Message service makes a post request to URL passing a message object and also whom to send</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -256,6 +347,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -270,11 +362,15 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Course Id</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>message</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../interfaces/MessageSent.html" target="_self" >MessageSent</a></code>
                                     </td>
 
                                     <td>
@@ -282,6 +378,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Message to be sent</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>to</td>
@@ -294,6 +394,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Which stores whom to send(Either only to TA or both)</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -305,7 +409,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Post Request </p>
+
                     </div>
                 </td>
             </tr>
@@ -321,6 +426,8 @@
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import {Message} from &#x27;../_models/message&#x27;;
+import {ReadBy} from &#x27;../_models/read_by&#x27;;
+import {MessageSent} from &#x27;../_models/message_sent&#x27;;
 import {BASE_URL} from &#x27;./base&#x27;;
 const httpOptions &#x3D; {
   headers: new HttpHeaders({
@@ -335,17 +442,50 @@ export class MessageService {
   constructor(
     private http:HttpClient,
   ) { }
+  /**
+   * Sends a get request to URL to get the messages
+   * 
+   * @param id Represents the course id for which the messages are to be obtained
+   * 
+   * @return Array Object of Messages
+   */
   GET_MESSAGES(id:number):Observable&lt;Message&gt;{
     const URL&#x3D;BASE_URL+&#x27;/api/messages/&#x27;+id.toString()+&#x27;/&#x27;;
     return this.http.get&lt;Message&gt;(URL,httpOptions);
   }
-  SEND_MESSAGE(id:number,message:string,to:string): Observable&lt;Message&gt;{
+  /**
+   * Send Message service makes a post request to URL passing a message object and also whom to send
+   * @param id Course Id
+   * @param message Message to be sent
+   * @param to Which stores whom to send(Either only to TA or both)
+   * @return Post Request 
+   */
+  SEND_MESSAGE(id:number,message:MessageSent,to:string): Observable&lt;Message&gt;{
     const URL&#x3D;BASE_URL+&#x27;/api/messages/&#x27;+id.toString()+&#x27;/&#x27;;
     var data&#x3D;{};
     data[&#x27;to&#x27;]&#x3D;to;
-    data[&#x27;message&#x27;]&#x3D;message;
+    data[&#x27;message&#x27;]&#x3D;message[&#x27;message_text&#x27;];
+    window.alert(message[&#x27;message_text&#x27;]);
+    data[&#x27;prior&#x27;]&#x3D;message[&#x27;message_priority&#x27;];
+
+    /*if(data[&#x27;prior&#x27;]&#x3D;&#x3D;&quot;true&quot;)
+      data[&#x27;prior&#x27;]&#x3D;true;
+    else
+      data[&#x27;prior&#x27;]&#x3D;false;*/
+
+   // window.alert(data[&#x27;prior&#x27;]);
     console.log(data);
     return this.http.post&lt;Message&gt;(URL,data,httpOptions);
+  }
+  /**
+   * This service sends a GET request to URL to get the list of users who read a particular message
+   * @param id Message Id
+   * @return Array of User Objects who read the message
+   */
+  READ_MESSAGE(id:number)
+  {
+    const URL&#x3D;BASE_URL+&#x27;/api&#x27;+&#x27;/readby/&#x27;+id.toString()+&#x27;/&#x27;;
+    return this.http.get&lt;ReadBy&gt;(URL,httpOptions);
   }
 }
 </code></pre>

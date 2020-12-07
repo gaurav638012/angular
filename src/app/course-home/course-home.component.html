@@ -1,3 +1,5 @@
+
+<h1 class="h1">{{course_name}}</h1>
 <mat-expansion-panel class = "add">    
     <mat-expansion-panel-header class = "right-aligned-header"> 
         <mat-panel-title></mat-panel-title>
@@ -63,7 +65,7 @@
             <div *ngIf="message.from_username==='professor'">
                 <div class="card bg-light text-red prof">
                     <div class="card-header">
-                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
+                        <a routerLink="{{'/course/read/'+message.id}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color: red;">{{message.message}}</p>
@@ -73,7 +75,7 @@
             <div *ngIf="!(message.from_username==='professor')">
                 <div class="card bg-light text-red TA">
                     <div class="card-header">
-                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
+                        <a routerLink="{{'/course/read/'+message.id}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color: red;">{{message.message}}</p>
@@ -85,7 +87,7 @@
             <div *ngIf="message.from_username==='professor'">
                 <div class="card bg-light text-red prof">
                     <div class="card-header">
-                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
+                        <a routerLink="{{'/course/read/'+message.id}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color:green;">{{message.message}}</p>
@@ -95,7 +97,7 @@
             <div *ngIf="!(message.from_username==='professor')">
                 <div class="card bg-light TA">
                     <div class="card-header">
-                        <a routerLink="{{'/course/'+course_id+'/'+'read'}}"><p>{{message.from_username}}</p></a>
+                        <a routerLink="{{'/course/read/'+message.id}}"><p>{{message.from_username}}</p></a>
                     </div>
                     <div class="class-body">
                         <p style="color:green;">{{message.message}}</p>

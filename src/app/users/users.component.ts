@@ -13,10 +13,16 @@ const httpOptions = {
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
+
 export class UsersComponent implements OnInit {
+  /**
+   * Represents the list of users registered in the course including the professor
+   * 
+   */
 list_of_students:any;
+
 course_id:any;
-DELETE_URL:any;
+
 is_professor:boolean;
   constructor(private http:HttpClient,
     private activatedRoute:ActivatedRoute,
@@ -24,29 +30,37 @@ is_professor:boolean;
     ) { 
     
   }
-
+/**
+ * First the course id is extracted using activatedRoute from the path
+ * 
+ * Then userService is called to get the list_of_students 
+ * 
+ * Note here the professor cannot remove himself from the course via the UI
+ * 
+ * This function also sets the is_professor variable by looking into the local storage to give permission to remove students/TA's
+ * 
+ */
   ngOnInit(): void {
     this.course_id=this.activatedRoute.snapshot.paramMap.get('id');
-    //window.alert(this.course_id);
     this.userservice.get_students(this.course_id).subscribe((data)=>{this.list_of_students=data;});
     
-    //console.log("haio");
-    //console.log("hell");
-    //console.log(this.list_of_students)
-
-    //window.alert(this.list_of_students.length());
     if(localStorage.getItem('is_professor')=='true'){
       this.is_professor=true;
     }
     else{
       this.is_professor=false;
     }
-  }
 
+  }
+/**
+ * 
+ * @param username This represents the username of the person to be removed
+ * This function calls the userservice to delete the student of a particular username 
+ */
   delete_student(username:string)
   {
+    this.userservice.delete_students(this.course_id,username).subscribe(data=>{location.reload()});
     
-    this.userservice.delete_students(this.course_id,username);
   }
 
 

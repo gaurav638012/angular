@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>UserMy</li>
+  <li>MessageSent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,14 +61,15 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/_models/user-my.ts</code>
+            <code>src/app/_models/message_sent.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>interface to represent the current user loggen in</p>
+                <p>this interface is for message content which contains the message text and the message priority 
+which is either high or low</p>
 
             </p>
 
@@ -86,16 +87,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#courses">courses</a>
+                                        <a href="#message_priority">message_priority</a>
                                 </li>
                                 <li>
-                                        <a href="#is_professor">is_professor</a>
-                                </li>
-                                <li>
-                                        <a href="#token">token</a>
-                                </li>
-                                <li>
-                                        <a href="#user">user</a>
+                                        <a href="#message_text">message_text</a>
                                 </li>
                             </ul>
                         </td>
@@ -112,49 +107,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="courses"></a>
-                                        <span class="name"><b>courses</b><a href="#courses"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="message_priority"></a>
+                                        <span class="name"><b>message_priority</b><a href="#message_priority"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>courses:         <code><a href="../interfaces/Course.html" target="_self" >Array&lt;Course&gt;</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../interfaces/Course.html" target="_self" >Array&lt;Course&gt;</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>contains the list of courses the person is associated.He/She can be 
-either a Professor or TA or a student</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="is_professor"></a>
-                                        <span class="name"><b>is_professor</b><a href="#is_professor"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>is_professor:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>message_priority:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -171,25 +130,19 @@ either a Professor or TA or a student</p>
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>holds whether the person is a professor or not</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="token"></a>
-                                        <span class="name"><b>token</b><a href="#token"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="message_text"></a>
+                                        <span class="name"><b>message_text</b><a href="#message_text"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>token:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>message_text:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -208,67 +161,16 @@ either a Professor or TA or a student</p>
 
                         </tbody>
                     </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="user"></a>
-                                        <span class="name"><b>user</b><a href="#user"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>user:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>user id that is stored in the database</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
             </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Course} from &#x27;./course&#x27;;
-/**
- * interface to represent the current user loggen in
- */
-export interface UserMy {
-    /**
-     * user id that is stored in the database
-     */
-    user: number;
-    /**
-     * holds whether the person is a professor or not
-     */
-    is_professor: boolean;
-    token: string;
-    /**
-     * contains the list of courses the person is associated.He/She can be 
-     * either a Professor or TA or a student
-     */
-    courses: Array&lt;Course&gt;;
-}
-</code></pre>
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface MessageSent {
+    message_text:string;
+    message_priority:boolean;
+   
+}</code></pre>
     </div>
 </div>
 
@@ -295,7 +197,7 @@ export interface UserMy {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserMy.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'MessageSent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

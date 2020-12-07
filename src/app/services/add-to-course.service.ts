@@ -17,6 +17,13 @@ export class AddToCourseService {
   constructor(
     private http:HttpClient
   ) { }
+  /**
+   * AddToCourse service adds a student/TA in a particular course
+   * 
+   * @param username This represents the username of the student to be added in the course
+   * @param id This represents the course id
+   * @param status This decides whether the person is a TA or a student in that course
+   */
   AddToCourse(username:string,id:number,status:string): Observable<CourseStatus>{
     const URL=BASE_URL+'/api/user/'+id.toString()+'/'+username+'/';
     var data = {};

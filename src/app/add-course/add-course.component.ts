@@ -24,7 +24,19 @@ export class AddCourseComponent implements OnInit {
       code: ['', [Validators.required, Validators.maxLength(5)]]
   });
   }
+  /**
+   * To return form controls to the html page
+   */
   get f() { return this.CourseForm.controls; }
+  /**
+   * If the course form is invalid it stops
+   * 
+   * It calss addCourse service to add the course of given details
+   * 
+   * If it is a success it navigates to the home page which will also show the newly added course
+   * 
+   * Else it stays at the same page
+   */
   onSubmit(){
     
     this.submitted = true;
@@ -32,7 +44,7 @@ export class AddCourseComponent implements OnInit {
       return;
     }
     this.loading = true;
-    console.log(this.CourseForm.value);
+   // console.log(this.CourseForm.value);
     this.addCourse.addCourse(this.CourseForm.value)
             .pipe(first())
             .subscribe(
@@ -40,7 +52,7 @@ export class AddCourseComponent implements OnInit {
                         this.router.navigate(['home']);
                 },
                 error => {
-                    console.log(error);
+                   // console.log(error);
                     this.router.navigate(['addcourse']);
                 });
   }
