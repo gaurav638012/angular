@@ -5,10 +5,10 @@ This is a project that is a centralised dashboard which can allows the professor
 ## Team Members
 Team:
 
-*Prajeeth.S(190050117)
-*Girish M.V(190050069)
-*Gaurav.P(190050037)
-*Krushnakant(190100036)
+Prajeeth.S(190050117)
+Girish M.V(190050069)
+Gaurav.P(190050037)
+Krushnakant(190100036)
 
 # Key Features
 
