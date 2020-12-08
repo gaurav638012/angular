@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import {BASE_URL} from  '../services/base';
+
 import {UserService} from '../services/user.service';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  })
-};
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',

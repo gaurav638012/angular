@@ -53,7 +53,7 @@ export class UserService {
     var url=BASE_URL+'/api/usercourse/'+id.toString()+'/';
     var data={};
     data['username']=username;
-    console.log("hello bro");
+    
     return this.http.post(url,data,httpOptions);
   }
 }

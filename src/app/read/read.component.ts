@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import { ActivatedRoute } from '@angular/router';
-import {BASE_URL} from  '../services/base';
+
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
@@ -28,9 +28,7 @@ export class ReadComponent implements OnInit {
   ngOnInit(): void {
     this.message_id=this.activatedRoute.snapshot.paramMap.get('id');
     this.messageservice.READ_MESSAGE(this.message_id).subscribe(data=>{this.read_list=data;});
-    //console.log("hai");
-    //console.log(this.read_list);
-    //this.userservice.get_students(this.course_id).subscribe((data)=>{this.list_of_students=data;});
+    
   }
 
 }

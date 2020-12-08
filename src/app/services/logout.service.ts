@@ -21,10 +21,7 @@ export class LogoutService {
    * This function just clears local storage and logs out
    */
   logout() {
-    /*
-    localStorage.removeItem('token');
-    localStorage.removeItem('expires_at');*/
+    
     localStorage.clear();
-    //console.log("hi");
   }
 }

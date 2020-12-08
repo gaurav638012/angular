@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-        // stop here if form is invalid
+       
         if (this.loginForm.invalid) {
             return;
         }
@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
                     else{
                         this.idService.IDENTITY().pipe(first())
                         .subscribe(
-                            data=>{console.log(data);
+                            data=>{
                             if(data['is_professor']==true){
                                 localStorage.setItem('is_professor','true');
                             }

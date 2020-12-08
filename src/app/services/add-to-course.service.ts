@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Course} from '../_models/course';
 import {CourseStatus} from '../_models/course-status';
 import {BASE_URL} from './base';
 const httpOptions = {

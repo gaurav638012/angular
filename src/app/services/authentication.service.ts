@@ -2,31 +2,16 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Login} from '../_models/login';
-//import {UserMy} from '../_models/user-my';
-//import {UserToken} from '../_models/user-token';
-//import * as uuid from 'uuid';
 import {BASE_URL} from './base';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { CanActivate, Router } from '@angular/router';
 import { tap, shareReplay } from 'rxjs/operators';
 import { LogoutService } from './logout.service';
-
-//import * as jwtDecode from 'jwt-decode';
 import * as moment from 'moment';
 const LOGIN_URL = BASE_URL+'/api/auth/get-token/';
 const REFRESH_URL = BASE_URL+'/api/auth/refresh-token/';
 
-/*const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  })
-};*/
-interface JWTPayload {
-  user_id: number;
-  username: string;
-  email: string;
-  exp: number;
-}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,21 +24,20 @@ export class AuthenticationService {
     private http: HttpClient,
   ) { }
   private setSession(authResult) {
-    console.log("start");
+    
     const token = authResult.token; 
-    console.log("token got");
+ 
     /**
      * using function decode to get payload of JWT token
      * 
      */
     const payload = this.decode(token); 
-    console.log("payload got");
+    
     /**
      * converting expiry time from unix timestamp to date time
      */
     const expiresAt = moment.unix(payload.exp); 
-    console.log("expiry got");
-    console.log(authResult.token); 
+  
     /**
      * storing token and expiry details
      */
@@ -77,7 +61,7 @@ export class AuthenticationService {
          */
         return JSON.parse(atob(token.split(".")[1])); 
     } catch (e) {
-        console.log("error decoding token");
+        
     }
   }
   /**
@@ -110,14 +94,14 @@ export class AuthenticationService {
    * @return Sets data of get-token result via setSession
    */
   login(data: Login)
-  { console.log("1");
+  { 
     
     return this.http.post(LOGIN_URL,data)  
     .pipe(
       tap(response => {
-        console.log("init");
+        
         this.setSession(response); 
-      console.log("login");}),
+      }),
       shareReplay(),
     );
   }

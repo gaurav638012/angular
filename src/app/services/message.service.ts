@@ -41,16 +41,11 @@ export class MessageService {
     var data={};
     data['to']=to;
     data['message']=message['message_text'];
-    window.alert(message['message_text']);
+    window.alert('message sent : '+message['message_text']);
     data['prior']=message['message_priority'];
 
-    /*if(data['prior']=="true")
-      data['prior']=true;
-    else
-      data['prior']=false;*/
-
-   // window.alert(data['prior']);
-    console.log(data);
+    
+    
     return this.http.post<Message>(URL,data,httpOptions);
   }
   /**

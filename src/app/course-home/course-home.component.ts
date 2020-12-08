@@ -6,9 +6,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { first } from 'rxjs/operators';
 import {AddToCourseService} from '../services/add-to-course.service';
 import {MessageService} from '../services/message.service';
-//import {MatExpansionModule} from '@angular/material/expansion';
-//import { Observable } from 'rxjs';
-//import {Message} from '../_models/message';
+
 @Component({
   selector: 'app-course-home',
   templateUrl: './course-home.component.html',
@@ -72,7 +70,7 @@ export class CourseHomeComponent implements OnInit {
     this.who.STATUS(this.course_id)
     .pipe(first())
     .subscribe(data=>{
-      console.log(data);
+      
       this.course_status=data['status'];
       
     });
@@ -127,7 +125,7 @@ export class CourseHomeComponent implements OnInit {
     this.a_t_l=true;
     this.addtocourse.AddToCourse(this.username.value,this.course_id,'TA').pipe(first())
     .subscribe(
-      data=>{console.log(data);window.alert("TA is added successfully");location.reload();},
+      data=>{window.alert("TA is added successfully");location.reload();},
       error=>{window.alert("adding TA unsuccessful");}
       
     )
@@ -151,7 +149,7 @@ export class CourseHomeComponent implements OnInit {
     this.m_t_l=true;
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'TA').pipe(first())
     .subscribe(
-      data=>{console.log(data);
+      data=>{
         location.reload();
       }
     );
@@ -171,7 +169,7 @@ export class CourseHomeComponent implements OnInit {
     this.m_s_l=true;
     this.messageService.SEND_MESSAGE(this.course_id,this.message.value,'student').pipe(first())
     .subscribe(
-      data=>{console.log(data);
+      data=>{
         location.reload();
       }
     )

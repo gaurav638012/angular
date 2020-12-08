@@ -43,8 +43,7 @@ export class RegisterComponent implements OnInit {
         private formBuilder: FormBuilder,
         private router: Router,
         private userService: UserService,
-        /*private authenticationService: AuthenticationService,
-        private alertService: AlertService*/
+        
     ) { 
         // redirect to home if already logged in
         /*if (this.authenticationService.currentUserValue) { 
@@ -88,7 +87,7 @@ export class RegisterComponent implements OnInit {
      * If everything is successful it takes back to login page else window alert message    */
     onSubmit() {
         this.submitted = true;
-      //console.log(this.submitted);
+      
         
         if (this.registerForm.invalid || this.auth_code_form.invalid) {
             return;
@@ -135,6 +134,6 @@ export class RegisterComponent implements OnInit {
                     window.alert("registration unsuccessful");
                     this.loading = false;
                 });
-          //console.log(this.registerForm.value);
+
     }
 }

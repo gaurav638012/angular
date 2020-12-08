@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
    * This function leads to a different component add course
    */
   AddCourse(){
-    console.log('clicked');
+   
     this.router.navigate(['addcourse']);
   }
 
