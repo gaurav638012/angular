@@ -1,6 +1,13 @@
-# Dashboard
+#   404 NOT FOUND
 
 This is a project that is a centralised dashboard which can allows the professor and TA's to send notifications and allow students to view the messages
+
+## Team Members
+Team:
+Prajeeth.S(190050117)
+Girish M.V(190050069)
+Gaurav.P(190050037)
+Krushnakant(190100036)
 
 # Key Features
 
@@ -48,3 +55,6 @@ We can try to reduce the requests time and make it faster though its already qui
 Then we can regulate by having top 10 messages in a page and rest can be done like view previous or something like that which may make it faster(Honestly dont know will it do)
 We can add some confirmation way for adding/removing students/TA's since things may happen by a slip of a hand
 We can give provision to delete a message(Though this is still fine)
+
+
+
